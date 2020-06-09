@@ -1,6 +1,6 @@
 import React from "react";
 import {Link, Route} from "react-router-dom";
-import Stats from "./stats"
+import Stats from "./Stats"
 
 function History(props){
   return (
