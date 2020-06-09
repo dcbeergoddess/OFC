@@ -10,33 +10,17 @@ function NavTabs() {
   return (
     <ul className="nav nav-tabs">
       <li className="nav-item">
-        <Link to="/" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>
-          Home
+        <Link to="/history" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>
+          History of Change
         </Link>
       </li>
       <li className="nav-item">
         <Link
-          to="/about"
-          className={location.pathname === "/about" ? "nav-link active" : "nav-link"}
-        >
-          About
-        </Link>
-      </li>
-      <li className="nav-item">
-        <Link
-          to="/help"
-          className={location.pathname === "/help" ? "nav-link active" : "nav-link"}
+          to="/"
+          className={location.pathname === "/" ? "nav-link active" : "nav-link"}
           >
-            Help
+            Organizing for Change
           </Link>
-      </li>
-      <li className="nav-item">
-        <Link
-        to="/help/faq"
-        className={location.pathname === "/help/faq" ? "nav-link active" : "nav-link"}
-        >
-          FAQ
-        </Link>
       </li>
       <li className="nav-item">
         <Link to="/sign-up" className={location.pathname === "/sign-up" ? "nav-link active" : "nav-link"}>
