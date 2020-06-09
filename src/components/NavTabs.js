@@ -38,6 +38,16 @@ function NavTabs() {
           FAQ
         </Link>
       </li>
+      <li className="nav-item">
+        <Link to="/sign-up" className={location.pathname === "/sign-up" ? "nav-link active" : "nav-link"}>
+          Sign-up
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link to="/login" className={location.pathname === "/login" ? "nav-link active" : "nav-link"}>
+          Login
+        </Link>
+      </li>
     </ul>
   );
 }
