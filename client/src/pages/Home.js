@@ -14,7 +14,12 @@ function Home() {
         consequat. Vestibulum vitae lorem tortor. In elementum ultricies tempus. Interdum et
         malesuada fames ac ante ipsum primis in faucibus.
       </p>
+  
+      <a href="/EventMain" role="button" className="btn btn-link">
+        See Events
+      </a>
     </div>
+
   );
 }
 
