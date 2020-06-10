@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "Transatlantic Slave Trade",
+    "date": "1526-1866",
+    "image":
+    "https://cdn.pixabay.com/photo/2012/03/01/00/22/chain-19514_1280.jpg",
+    "text": "12.5 million people were kidnapped from Africa and sent to the Americas through the transatlantic slave trade. Upon reaching the New World, some 3.9 million of the 10.7 million who survived the harrowing two-month journey were enslaved in the United States"
+  },
+  {
+    "id": 2,
+    "title": "Juneteenth",
+    "date": "June 19th, 1865",
+    "image":
+    "https://cdn.pixabay.com/photo/2016/07/06/07/19/the-freedman-1500099_1280.jpg",
+    "text": "Though Abraham Lincoln issued the Emancipation Proclamation on January 1, 1863, the decree took two-and-a-half years to fully enact. Juneteenth is named for the day enslaved individuals of Texas were told they were officially free."
+  },
+  {
+    "id": 3,
+    "title": "Poll Taxes",
+    "date": "March 24, 1966",
+    "image":
+    "https://thumbs-prod.si-cdn.com/ae2jHTG5NdH5ZZ8YmC-0iT2Wp0s=/800x600/filters:no_upscale()/https://public-media.si-cdn.com/filer/2a/ae/2aae5f93-d68f-4f3e-93cc-78dec0043224/2012_104_001-web-resize.jpg",
+    "text": "The U.S. Supreme Court ruled in Harper v. Virginia Board of Elections, that poll taxes for any level of election were unconstitutional. A a vivid and a significant example of the way that voting rights were denied to African Americans. Poll taxes, quite simply a tax to pay to vote, were enacted in the post-reconstruction era from the late 19th to the very early 20th century."
+  },
+  {
+    "id": 4,
+    "title": "Lynching",
+    "date": "2018",
+    "image":
+    "https://cdn.pixabay.com/photo/2014/09/29/21/19/us-capitol-466531_1280.jpg",
+    "text": "The Senate finally passed legislation declaring lynching a federal crime in 2018 after more than 200 anti-lynching bills failed to make it through congress in over 100 years."
+  }
+]
