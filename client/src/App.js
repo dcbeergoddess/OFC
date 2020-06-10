@@ -6,6 +6,7 @@ import History from "./pages/History";
 import EventMain from "./pages/EventMain";
 import EventDetail from "./pages/EventDetail";
 import AddEvent from "./pages/AddEvent";
+import AddComment from "./pages/AddComment";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/EventMain" component={EventMain}/>
         <Route path="/EventDetail" component={EventDetail}/>
         <Route path="/AddEvent" component={AddEvent}/>
+        <Route path="/AddComment" component={AddComment}/>
       </div>
     </Router>
   );
