@@ -5,6 +5,9 @@ import {Link, Route} from "react-router-dom";
 function EventDetail(props){
   return (
     <div>
+        <Link to="/AddComment" role="button" className="btn btn-link">
+        ADD COMMENT
+      </Link>
       <h1>Event Detail Page</h1>
       <p>
       This page shows full event detail for the selected event which routed you here.
