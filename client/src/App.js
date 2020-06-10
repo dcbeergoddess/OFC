@@ -23,7 +23,6 @@ function App() {
         <Route path="/EventDetail" component={EventDetail}/>
         <Route path="/AddEvent" component={AddEvent}/>
         <Route path="/AddComment" component={AddComment}/>
-        <EventCard/>
       </div>
     </Router>
   );
