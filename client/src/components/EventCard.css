@@ -5,10 +5,13 @@
     font-family: "Cornerstone";
   }
 
-  .flex-container {
-    display: flex;
+
+  .row text-center {
+    display:flex; flex-wrap:wrap;
     flex-flow: row wrap;
   }
+
+
 
   .card {
     width: 50%;
@@ -32,6 +35,17 @@
     width: 100%;
     max-height: 250px;
   }
+
+  h1, p, h3 {
+    color: #FAFAD2;
+    text-align: center;
+    text-shadow: 0px 4px 3px rgba(0,0,0,7), 
+                 0px 8px 13px rgba(0,0,0,5),
+                 0px 18px 23px rgba(0,0,0,0.7);
+  }
+
+
+
   
  
  

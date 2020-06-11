@@ -28,7 +28,7 @@ function EventMain(props){
           time={event.time}
           location={event.location}
           />
-          <EventCardWrapper/>
+  
           </div>
       ))}
       </div>
