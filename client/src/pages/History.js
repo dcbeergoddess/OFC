@@ -1,8 +1,9 @@
 import React from "react";
 import {Link, Route} from "react-router-dom";
-import TimelineCard from "../components/TimelineCard"
-import timelineJson from "../timeline.json"
-import Stats from "./Stats"
+import "../components/Flex";
+import TimelineCard from "../components/TimelineCard";
+import timelineJson from "../timeline.json";
+import Stats from "./Stats";
 
 function History(props){
   return (

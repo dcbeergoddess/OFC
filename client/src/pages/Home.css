@@ -1,0 +1,15 @@
+.jumbotron {
+
+  background: url(../assets/images/BLM_StreetSign.png)
+
+}
+
+body {
+  background-image: url(../assets/images/background.jpg);
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  font-family: "Cornerstone";
+  color: #FFFFF0;
+  line-height: 150%;
+}

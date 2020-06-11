@@ -2,6 +2,8 @@ import React from "react";
 import {Link, Route} from "react-router-dom";
 import EventCard from "../components/EventCard"
 import eventsjson from "../events.json";
+import EventCardWrapper from "../components/EventCardWrapper"
+
 
 
 function EventMain(props){
@@ -11,9 +13,13 @@ function EventMain(props){
         Add New Event
       </Link>
 
-      <h1>Event Main Page</h1>
+      <Link to="/" role="button" className="btn btn-link">
+        Go Back
+      </Link>
+
       <div>
       {eventsjson.map(event => (
+        <div>
           <EventCard 
           key={event.id}
           title={event.title}
@@ -22,16 +28,13 @@ function EventMain(props){
           time={event.time}
           location={event.location}
           />
+          <EventCardWrapper/>
+          </div>
       ))}
       </div>
 
-      <Link to="/" role="button" className="btn btn-link">
-        Go Back
-      </Link>
 
-      <Link to="/EventDetail" role="button" className="btn btn-link">
-        EventDetail
-      </Link>
+
       <Route exact path={`${props.match.url}/EventMain`} component={EventMain} />
 </>
   );

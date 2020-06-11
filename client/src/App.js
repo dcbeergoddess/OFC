@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import NavTabs from "./components/NavTabs";
-import EventCard from "./components/EventCard";
 import Home from "./pages/Home";
 import History from "./pages/History";
 import EventMain from "./pages/EventMain";

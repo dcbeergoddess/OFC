@@ -2,3 +2,14 @@
   font-family: "Cornerstone";
   src: local("Cornerstone", url(./assets/fonts/Cornerstone.ttf) format("truetype")) 
 }
+
+body {
+    background-image: url(./assets/images/background.jpg);
+    background-size: cover;
+    font-family: "Cornerstone";
+    color: #FFFFF0;
+}
+
+.card {
+  background-color: #202020
+}
