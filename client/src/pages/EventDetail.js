@@ -7,18 +7,18 @@ import eventsjson from "../events.json"
 function EventDetail(props){
   return (
     <div>
-        <Link to="/AddComment" role="button" className="btn btn-link">
-        ADD COMMENT
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1> Community Page</h1>
+          </div>
+        </div>
+        <div>
+          <Link to="/AddComment" role="button" className="btn btn-lg btn-dark btn-block">
+            Add Comment
       </Link>
-      <h1>Event Detail Page</h1>
-      
-      <p>
-      This page shows full event detail for the selected event which routed you here.
-      This page will render the Event Detail component
-      This page will have a comment collection component with comment each components rendered
-      </p>
-
-      <h1>Event Details</h1>
+        </div>
+      </div>
       <div>
       {eventsjson.map(event => (
           <EventCard 
@@ -29,6 +29,7 @@ function EventDetail(props){
           time={event.time}
           location={event.location}
           />
+
       ))}
       </div>
 
