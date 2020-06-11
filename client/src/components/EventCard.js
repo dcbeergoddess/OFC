@@ -7,17 +7,7 @@ import "../index.css";
 class EventCard extends React.Component {
     render() {
         return (
-            <div class="container">
-                <header class="jumbotron">
-                        <h1> Get Involved!!</h1>
-                        <p> Browse events or leave comments on existing events</p>
-                </header>
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h3>Members have added the following events </h3>
-                    </div>
-                </div>
+ 
 
                 <div class="row text-center">
                     <div class="col-md-3 col-sm-6">
@@ -35,7 +25,7 @@ class EventCard extends React.Component {
                                 </div>
                             </div>
                         </div>
-                    </div>
+               
         )
     }
 }
