@@ -4,7 +4,7 @@
 }
 
 body {
-    background-image: url(../assets/images/background.jpg);
+    background-image: url(./assets/images/background.jpg);
     background-size: cover;
     font-family: "Cornerstone";
     color: #FFFFF0;
