@@ -29,7 +29,6 @@ function EventDetail(props){
           time={event.time}
           location={event.location}
           />
-
       ))}
       </div>
 
