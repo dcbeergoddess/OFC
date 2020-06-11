@@ -37,15 +37,61 @@ const clientStaticPath = process.env.NODE_ENV === 'production' ?
 // Serve up static assets (usually on heroku)
 app.use(express.static(clientStaticPath))
 
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 
 // Define API routes here
 
-app.post("/api/login", passport.authenticate("local"), function(req, res) {
-  res.json(req.user)
+app.post("/api/login", function(req, res) {
+
+  User.findOne({username: req.body.username}, function(err, user) {
+    if (err) console.error(err)
+
+    const logonFailed = {status: "error", message: "Invalid username or password."}
+
+    if (!user) {
+      console.log("User not found.")
+      res.json(logonFailed)
+    } else {
+
+      console.log(user)
+
+      if (user.comparePassword(req.body.password)) {
+        console.log("Password matched!")
+        res.json({status: "success", data: {
+          username: user.username,
+          _id: user._id
+        }})
+      } else {
+        console.log("Password did not match.")
+        res.json(logonFailed)
+      }
+    }
+  })
+})
+
+
+app.post("/api/register", function(req, res) {
+
+  User.findOne({username: req.body.username}, function(err, user) {
+    if (err) console.error(err)
+
+    const logonFailed = {status: "error", message: "User already exists."}
+
+    if (user) {
+      console.log("User already exists.")
+      res.json(logonFailed)
+    } else {
+      const newUser = new User(req.body)
+      newUser.save(function (err, user) {
+        if (err) return console.error(err);
+
+        console.log(user.username + " added!");
+      })
+    }
+  })
 })
 
 // Send every other request to the React app
