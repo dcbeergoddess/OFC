@@ -1,0 +1,21 @@
+.form {
+    margin: 20px;
+    width: 50%; 
+    margin: 20px auto;
+  }
+  
+  .form input {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+  }
+
+  .btn btn-dark {
+      align-items: center;
+  }
+
+  h1 {
+      text-align: center;
+  }
+  

@@ -6,10 +6,7 @@ import AddEventForm from "../components/AddEventForm"
 function AddEvent(props){
   return (
     <div>
-      <h1>Add Event Form Page</h1>
-
-    
-
+  
       <Link to="/EventMain" role="button" className="btn btn-link">
         Go Back
       </Link>
