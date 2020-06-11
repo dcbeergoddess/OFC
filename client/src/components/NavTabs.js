@@ -9,12 +9,15 @@ function NavTabs() {
   const location = useLocation();
 
   return (
-    <ul className="nav nav-tabs">
+    <>
+    <ul className="nav nav-history">
       <li className="nav-item">
         <Link to="/history" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>
-          History of Change
+          History for Change
         </Link>
       </li>
+      </ul>
+      <ul className="nav nav-change"> 
       <li className="nav-item">
         <Link
           to="/"
@@ -23,6 +26,8 @@ function NavTabs() {
             Organizing for Change
           </Link>
       </li>
+      </ul> 
+      <ul className="nav nav-user">
       <li className="nav-item">
         <Link to="/sign-up" className={location.pathname === "/sign-up" ? "nav-link active" : "nav-link"}>
           Sign-up
@@ -34,6 +39,7 @@ function NavTabs() {
         </Link>
       </li>
     </ul>
+    </>
   );
 }
 
