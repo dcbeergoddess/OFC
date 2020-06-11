@@ -23,7 +23,7 @@ function RegisterForm(props) {
     {props.isAuthenticated &&
       <Redirect to="/" />
     }
-
+<div className="form">
     <div className="row mb-3 mt-5">
       <div className="col-12 col-md-6 offset-md-3">
         <h1 className="text-center mb-4">Register</h1>
@@ -35,6 +35,7 @@ function RegisterForm(props) {
               type="text"
               autoComplete="off"
               className="form-control col-12 col-md-8"
+              placeholder="Enter a Username"
             />
           </div>
           <div className="form-group row">
@@ -44,6 +45,7 @@ function RegisterForm(props) {
               type="password"
               autoComplete="off"
               className="form-control col-12 col-md-8"
+              placeholder="Enter a Password"
             />
           </div>
           <div className="form-group row">
@@ -54,14 +56,15 @@ function RegisterForm(props) {
               onChange={matchPasswords}
               autoComplete="off"
               className="form-control col-12 col-md-8"
+              placeholder="Confirm Password"
             />
           </div>
 
-          <button type="submit" className="btn btn-primary">Register</button>
+          <button type="submit" className="btn btn-lg btn-dark btn-block">Register</button>
         </form>
         {props.errorMessage &&
           <ErrorMessageBox message={props.errorMessage}/>}
-
+</div>
       </div>
     </div>
   </>)
