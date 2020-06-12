@@ -22,14 +22,14 @@ function History(props){
         ))}
       </Flex>
 
-      <Link to={`${props.match.url}/stats`} role="button" className="btn btn-link">
+      {/* <Link to={`${props.match.url}/stats`} role="button" className="btn btn-link">
         SHOW Stats
       </Link>{" "}
       <Link to="/history" role="button" className="btn btn-link">
         Hide Stats
       </Link>
 
-      <Route exact path={`${props.match.url}/stats`} component={Stats} />
+      <Route exact path={`${props.match.url}/stats`} component={Stats} /> */}
     </>
   );
 }
