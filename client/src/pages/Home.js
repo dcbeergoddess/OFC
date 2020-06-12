@@ -13,14 +13,7 @@ function Home() {
       </div>
       <h1>Organizing for Change</h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque velit, lobortis ut magna
-        varius, blandit rhoncus sem. Morbi lacinia nisi ac dui fermentum, sed luctus urna tincidunt.
-        Etiam ut feugiat ex. Cras non risus mi. Curabitur mattis rutrum ipsum, ut aliquet urna
-        imperdiet ac. Sed nec nulla aliquam, bibendum odio eget, vestibulum tortor. Cras rutrum
-        ligula in tincidunt commodo. Morbi sit amet mollis orci, in tristique ex. Donec nec ornare
-        elit. Donec blandit est sed risus feugiat porttitor. Vestibulum molestie hendrerit massa non
-        consequat. Vestibulum vitae lorem tortor. In elementum ultricies tempus. Interdum et
-        malesuada fames ac ante ipsum primis in faucibus.
+        Organizing for Change is a site that supports the critical mass of activists in the DMV area who envision a vibrant world in which people of all races create, share and enjoy resources and relationships equitably. By signing up, activists can view and add events happing in the DC area related to building awareness and solutions for racial justice.
       </p>
 
       <a href="/EventMain" role="button" className="btn btn-link">
