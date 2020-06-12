@@ -1,10 +1,9 @@
 import React from "react";
 import { Link} from "react-router-dom";
-// import {Flex} from './src/components/Flex.js'
 import "./EventCard.css";
 
 
-class EventDetail extends React.Component {
+class EventDetails extends React.Component {
     render() {
         return (<div className="card">
                 <h2 className="name">{this.props.title}</h2>
@@ -13,7 +12,7 @@ class EventDetail extends React.Component {
                     <h3 >{this.props.date}</h3>
                     <h3 >{this.props.time}</h3>
                     <h3 >{this.props.location}</h3>
-                    <h3 >{this.props.description}</h3>
+                    <button className="btn btn-dark">See Details</button>
 
                  <Link  to={`/EventMain`} >
                 </Link>
@@ -22,4 +21,4 @@ class EventDetail extends React.Component {
     }
 }
 
-export default EventDetail;
+export default EventDetails;
