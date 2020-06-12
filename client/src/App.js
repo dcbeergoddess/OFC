@@ -30,7 +30,7 @@ function App() {
   const showMessage = (message, timeout = 3000) => {
     setErrorMessage(message)
 
-    if (timeout !== 0){
+    if (timeout !== 0) {
       setInterval(() => setErrorMessage(""), timeout);
     }
   }
@@ -95,25 +95,23 @@ function App() {
   return (
     <Router>
       <div>
-        <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar bg="dark" expand="lg" isAuthenticated={isAuthenticated} handleLogout={handleLogout}>
+          <Navbar.Brand href="/" >Organizing for Change</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link">Link</Nav.Link>
-              <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-              </NavDropdown>
+              <Nav.Link href="/history">History of Change</Nav.Link>
+              {isAuthenticated ?
+                <>
+                  <Button variant="link" onClick={handleLogout}>Logout</Button>
+                </>
+                :
+                <>
+                  <Nav.Link href="/sign-up">Sign-Up</Nav.Link>
+                  <Nav.Link href="/login">Login</Nav.Link>
+                </>
+              }
             </Nav>
-            <Form inline>
-              <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-              <Button variant="outline-success">Search</Button>
-            </Form>
           </Navbar.Collapse>
         </Navbar>
         {/* Nav bar tabs first */}
@@ -121,24 +119,24 @@ function App() {
         {/* react router is responding to what the path is */}
         <Route exact path="/" component={Home} />
         <Route path="/history" component={History} />
-        <Route path="/EventMain" component={EventMain}/>
-        <Route path="/EventDetail" component={EventDetail}/>
-        <Route path="/AddEvent" component={AddEvent}/>
-        <Route path="/AddComment" component={AddComment}/>
+        <Route path="/EventMain" component={EventMain} />
+        <Route path="/EventDetail" component={EventDetail} />
+        <Route path="/AddEvent" component={AddEvent} />
+        <Route path="/AddComment" component={AddComment} />
         <Route path="/sign-up" render={props =>
           <RegisterForm {...props}
             onSubmit={registerUser}
             errorMessage={errorMessage}
             showMessage={showMessage}
             isAuthenticated={isAuthenticated} />
-          } />
+        } />
 
         <Route path="/login" render={props =>
           <LoginForm {...props}
             onSubmit={logonUser}
             errorMessage={errorMessage}
             isAuthenticated={isAuthenticated} />
-          } />
+        } />
       </div>
     </Router>
   );
