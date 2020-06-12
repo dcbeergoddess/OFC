@@ -72,6 +72,10 @@ function App() {
         if (result.data.status === 'success') {
           setIsAuthenticated(true)
           setUser(result.data.data)
+          form.username.value = ''
+          form.password.value = ''
+          form['confirm-password'].value = ''
+          showMessage("User registered successfully!")
         } else {
           showMessage(result.data.message)
         }

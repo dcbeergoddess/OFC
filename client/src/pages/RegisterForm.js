@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import ErrorMessageBox from '../components/ErrorMessageBox'
 import { Redirect } from 'react-router-dom'
 
+import API from '../utils/API'
+
 
 function RegisterForm(props) {
+
+  const [isRegistered, setIsRegistered] = useState(false)
 
   const matchPasswords = event => {
 
@@ -19,15 +23,42 @@ function RegisterForm(props) {
     }
   }
 
+
+  const registerUser = event => {
+    event.preventDefault()
+
+    const form = event.target
+    const credentials = {
+      username: form.username.value,
+      password: form.password.value
+    }
+
+    API.registerUser(credentials)
+      .then(result => {
+        console.log(result)
+        if (result.data.status === 'success') {
+          form.username.value = ''
+          form.password.value = ''
+          form['confirm-password'].value = ''
+          props.showMessage("User registered successfully!")
+          setIsRegistered(true)
+        } else {
+          props.showMessage(result.data.message)
+        }
+      })
+      .catch(console.error)
+  }
+
+
   return (<>
-    {props.isAuthenticated &&
-      <Redirect to="/" />
+    {isRegistered &&
+      <Redirect to="/login" />
     }
 <div className="form">
     <div className="row mb-3 mt-5">
       <div className="col-12 col-md-6 offset-md-3">
         <h1 className="text-center mb-4">Register</h1>
-        <form className="form-group" onSubmit={props.onSubmit} name='register'>
+        <form className="form-group" onSubmit={registerUser} name='register'>
           <div className="form-group row">
             <label htmlFor="username" className="col-12 col-md-4 col-form-label">Username:</label>
             <input

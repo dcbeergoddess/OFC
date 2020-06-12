@@ -19,3 +19,8 @@
       text-align: center;
   }
   
+  input.form-control {
+    border-radius: 0px
+  }
+
+  label.col-form-label { font-size: 14pt}
