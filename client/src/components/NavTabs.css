@@ -13,8 +13,15 @@
   line-height: 3;
 }
 
-a:hover {
-  opacity: 1;
+.btn {
+  color: ivory;
+  font-size: 2rem;
+  text-decoration: none;
+  line-height: 3;
+}
+
+.nav a:hover {
+  color: yellow;
 }
 
 .nav li:last-child {

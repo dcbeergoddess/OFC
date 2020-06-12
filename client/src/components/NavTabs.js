@@ -26,7 +26,7 @@ function NavTabs(props) {
       {props.isAuthenticated ?
         <>
           <li className="nav-item">
-            <button className="btn btn-outline-success" onClick={props.handleLogout}>Log Out</button>
+            <button className="btn btn-link" onClick={props.handleLogout}>Log Out</button>
           </li>
         </>
         :
