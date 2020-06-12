@@ -94,11 +94,6 @@ function App() {
 
   return (
     <Router>
-<<<<<<< HEAD
-      {/* Nav bar tabs first */}
-      <NavTabs isAuthenticated={isAuthenticated} handleLogout={handleLogout} />
-      <div className="container-fluid">
-=======
       <div>
         <Navbar bg="light" expand="lg">
           <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
@@ -123,7 +118,6 @@ function App() {
         </Navbar>
         {/* Nav bar tabs first */}
         <NavTabs isAuthenticated={isAuthenticated} handleLogout={handleLogout} />
->>>>>>> dab05ceecc4f78c54d7584fa0f7e5c703c9f6c83
         {/* react router is responding to what the path is */}
         <Route exact path="/" component={Home} />
         <Route path="/history" component={History} />
