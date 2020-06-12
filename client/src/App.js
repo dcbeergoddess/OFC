@@ -67,6 +67,10 @@ function App() {
         if (result.data.status === 'success') {
           setIsAuthenticated(true)
           setUser(result.data.data)
+          form.username.value = ''
+          form.password.value = ''
+          form['confirm-password'].value = ''
+          showMessage("User registered successfully!")
         } else {
           showMessage(result.data.message)
         }
@@ -85,9 +89,9 @@ function App() {
 
   return (
     <Router>
-      <div>
-        {/* Nav bar tabs first */}
-        <NavTabs isAuthenticated={isAuthenticated} handleLogout={handleLogout} />
+      {/* Nav bar tabs first */}
+      <NavTabs isAuthenticated={isAuthenticated} handleLogout={handleLogout} />
+      <div className="container-fluid">
         {/* react router is responding to what the path is */}
         <Route exact path="/" component={Home} />
         <Route path="/history" component={History} />

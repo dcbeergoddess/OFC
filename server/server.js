@@ -6,7 +6,10 @@ const
   mongoose = require('mongoose')
 
 
-const User = require('./models/User')
+const
+  User = require('./models/User'),
+  Event = require('./models/Event'),
+  Comment = require('./models/Comment')
 
 require('dotenv').config()
 
@@ -88,10 +91,70 @@ app.post("/api/register", function(req, res) {
       newUser.save(function (err, user) {
         if (err) return console.error(err);
 
-        console.log(user.username + " added!");
+        console.log(user.username + " added!")
+        res.json({status: "success", data: user})
       })
     }
   })
+})
+
+app.get("/api/events", function(req, res) {
+  Event.find({})
+    .populate('postedBy', '-password -__v')
+    .then(resp => {
+      res.json({status: "succss", data: resp})
+    })
+    .catch(error => {
+      req.json({status: "error", message: "No events found."})
+    })
+})
+
+app.get("/api/event/:id", function(req, res) {
+  const _id = req.params.id
+
+  Event.findOne({_id: new mongoose.Types.ObjectId(_id)})
+    .populate("postedBy", '-password -__v')
+    .populate("comments", '-__v')
+    .then(result => {
+      res.json({status: "success", data: result})
+    })
+    .catch(error => {
+      res.json({status: "error", message: error.message})
+    })
+
+})
+
+app.post("/api/event", function(req, res) {
+  const newEvent = new Event(req.body)
+  newEvent.save(function (err, event) {
+    if (err) return console.error(err);
+
+    console.log(event.title + " added!");
+    res.json({status: "success", data: event})
+  })
+})
+
+app.post("/api/comment", function(req, res) {
+  const newComment = new Comment(req.body)
+  newComment.save()
+    .then(comment => {
+      const eventId = new mongoose.Types.ObjectId(comment.forEvent)
+      Event.findOneAndUpdate(
+        { _id: eventId },
+        { $push: { comments: comment._id } }
+      )
+      .then(event =>{
+        console.log("Comment added!")
+        res.json({status: "success", data: comment})
+      })
+      .catch(error => {
+        res.json({status: "error", message: error.message})
+      })
+  })
+  .catch(error => {
+    res.json({status: "error", message: error.message})
+  })
+
 })
 
 // Send every other request to the React app
