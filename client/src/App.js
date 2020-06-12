@@ -18,7 +18,7 @@ import { Nav, Navbar, NavDropdown, Form, FormControl, Button } from 'react-boots
 
 
 
-function App(props) {
+function App() {
 
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [user, setUser] = useState({
@@ -97,9 +97,9 @@ function App(props) {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
               <Nav.Link href="/history">History of Change</Nav.Link>
-              {props.isAuthenticated ?
+              {isAuthenticated ?
                 <>
-                  <Button variant="link" onClick={props.handleLogout}>Logout</Button>
+                  <Button variant="link" onClick={handleLogout}>Logout</Button>
                 </>
                 :
                 <>
