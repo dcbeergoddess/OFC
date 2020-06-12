@@ -8,12 +8,13 @@ class EventCard extends React.Component {
     render() {
         return (
             <div className="card">
-                <h2 className="name">{this.props.title}</h2>
+                <h1 className="name">{this.props.title}</h1>
                 <img src={this.props.image}
                     alt={this.props.title} />
-                <h6 >{this.props.date}</h6>
-                <h6 >{this.props.time}</h6>
-                <h6 >{this.props.location}</h6>
+                <h6 > <strong>Event Date: </strong>{this.props.date}</h6>
+                <h6 > <strong>Start Time: </strong>{this.props.time}</h6>
+                <h6 > <strong>Meetup Location:</strong> {this.props.location}</h6>
+                <h6><strong>Event Description: </strong>{this.props.description}</h6>
                 <Link to="/EventDetail" role="button" className="btn btn-dark">See Details</Link>
                 <Link to={`/EventMain`} ></Link>
             </div>

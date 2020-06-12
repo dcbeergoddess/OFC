@@ -5,8 +5,6 @@ import eventsjson from "../events.json";
 import "../components/EventCard.css"
 
 
-
-
 function EventMain(props) {
   return (
     <>
@@ -25,7 +23,7 @@ function EventMain(props) {
       </div>
   
         {eventsjson.map(event => (
-          <div>
+          <div className= "EventCard">
             <EventCard
               key={event.id}
               title={event.title}
@@ -33,10 +31,10 @@ function EventMain(props) {
               date={event.date}
               time={event.time}
               location={event.location}
+              description={event.description}
             />
             </div>
         ))}
-
 
       <Route exact path={`${props.match.url}/EventMain`} component={EventMain} />
     </>
