@@ -4,12 +4,11 @@
 
 }
 
-body {
-  background-image: url(../assets/images/background.jpg);
-  background-size: cover;
-  margin: 0;
-  padding: 0;
-  font-family: "Cornerstone";
-  color: #FFFFF0;
-  line-height: 150%;
+p {
+  color: #FAFAD2;
+  text-align: center;
+  font-family: 'Anton', sans-serif;
+  text-shadow: 0px 4px 3px rgba(0,0,0,7), 
+               0px 8px 13px rgba(0,0,0,5),
+               0px 18px 23px rgba(0,0,0,0.7);
 }
