@@ -9,13 +9,13 @@ function NavTabs(props) {
   const location = useLocation()
 
   return (
-    <ul className="nav nav-tabs">
+    <ul className="nav justify-content-center">
       <li className="nav-item">
         <Link to="/history" className={location.pathname === "/" ? "nav-link active" : "nav-link"}>
           History of Change
         </Link>
       </li>
-      <li className="nav-item">
+      <li className="nav-item nav-brand">
         <Link
           to="/"
           className={location.pathname === "/" ? "nav-link active" : "nav-link"}
