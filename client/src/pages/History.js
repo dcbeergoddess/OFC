@@ -1,6 +1,6 @@
 import React from "react";
 import {Link, Route} from "react-router-dom";
-import "../components/Flex";
+import {Flex} from "../components/Flex";
 import TimelineCard from "../components/TimelineCard";
 import timelineJson from "../timeline.json";
 import Stats from "./Stats";
@@ -10,7 +10,7 @@ function History(props){
     <>
       <h1>History of Systemic Inequality</h1>
 
-      <div>
+      <Flex container wdith="300px" margin="50px auto" flexDirection="row" display="flex">
         {timelineJson.map(timeline => (
           <TimelineCard 
           key={timeline.id}
@@ -20,7 +20,7 @@ function History(props){
           text={timeline.text}
           />
         ))}
-      </div>
+      </Flex>
 
       <Link to={`${props.match.url}/stats`} role="button" className="btn btn-link">
         SHOW Stats
