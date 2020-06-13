@@ -15,9 +15,9 @@ function NavBar2(props) {
   // This allows the component to check the route any time the user uses a link to navigate.
   const location = useLocation()
 
-  const renderNavLink = (path, text) =>
+  const renderNavLink = (path, text, color = '#CD4545') =>
     <Nav.Link>
-      <Link to ={path} className="style-link" style={{color: "#CD4545", fontFamily:"'Anton', sans-serif", fontSize:"30px"}}>
+      <Link to ={path} className="style-link" style={{color: color, fontFamily:"'Anton', sans-serif", fontSize:"30px"}}>
         {text}
       </Link>
     </Nav.Link>
@@ -36,7 +36,7 @@ function NavBar2(props) {
             <Button className="style-link" variant="link" onClick={props.handleLogout} style={{color: "#CD4545", fontFamily:"'Anton', sans-serif", fontSize:"30px"}}>Logout</Button>
             :
             <>
-              {renderNavLink('/sign-up', 'Sign-up')}
+              {renderNavLink('/sign-up', 'Sign-up', '#FAFAD2')}
               {renderNavLink('/login', 'Login')}
             </>
           }
