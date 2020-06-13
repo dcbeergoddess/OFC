@@ -15,6 +15,8 @@ import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Nav, Navbar, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
 import "./App.css"
+import Footer from "./components/Footer";
+import "./components/Footer.css"
 
 
 
@@ -136,6 +138,7 @@ function App() {
             errorMessage={errorMessage}
             isAuthenticated={isAuthenticated} />
         } />
+        <Footer/>
       </div>
     </Router>
   );
