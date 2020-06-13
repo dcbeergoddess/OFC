@@ -1,0 +1,13 @@
+.footer span {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3px;
+  background: #202020;
+  text-align: center;
+  color: #fafad2;
+  font-size: 0.7em;
+  font-weight: bold;
+  font-variant: small-caps;
+}
