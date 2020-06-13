@@ -18,6 +18,17 @@ const SERVER_PORT = process.env.PORT || process.env.SERVER_PORT;
 console.log(process.env.MONGODB_URI)
 const app = express();
 
+
+const returnSuccess = (result, res) => {
+  console.log(result)
+  res.json({status: "success", data: result})
+}
+
+const returnError = ({message}, res) => {
+  console.error(message)
+  res.json({status: "error", message: message})
+}
+
 mongoose.connect(
   process.env.MONGODB_URI || '<to-do: public-uri>',
   (error) => {
@@ -49,89 +60,70 @@ app.use(express.static(clientStaticPath))
 
 app.post("/api/login", function(req, res) {
 
-  User.findOne({username: req.body.username}, function(err, user) {
-    if (err) console.error(err)
+  User.findOne({username: req.body.username})
+    .then(user => {
+      const logonFailed = () =>
+        returnError({message: "Invalid username or password."}, res)
 
-    const logonFailed = {status: "error", message: "Invalid username or password."}
-
-    if (!user) {
-      console.log("User not found.")
-      res.json(logonFailed)
-    } else {
-
-      console.log(user)
-
-      if (user.comparePassword(req.body.password)) {
-        console.log("Password matched!")
-        res.json({status: "success", data: {
+      if (!user) {
+        logonFailed()
+      } else if (!user.comparePassword(req.body.password)) {
+        logonFailed()
+      } else {
+        returnSuccess({
           username: user.username,
           _id: user._id
-        }})
-      } else {
-        console.log("Password did not match.")
-        res.json(logonFailed)
+        }, res)
       }
-    }
-  })
+    })
+    .catch(error => returnError(error, res))
 })
 
 
 app.post("/api/register", function(req, res) {
 
-  User.findOne({username: req.body.username}, function(err, user) {
-    if (err) console.error(err)
-
-    const logonFailed = {status: "error", message: "User already exists."}
-
-    if (user) {
-      console.log("User already exists.")
-      res.json(logonFailed)
-    } else {
-      const newUser = new User(req.body)
-      newUser.save(function (err, user) {
-        if (err) return console.error(err);
-
-        console.log(user.username + " added!")
-        res.json({status: "success", data: user})
-      })
-    }
-  })
+  User.findOne({username: req.body.username})
+    .then(user => {
+      if (user) {
+        returnError({message: "User already exists."}, res)
+      } else {
+        const newUser = new User(req.body)
+        newUser.save()
+          .then(user => returnSuccess(user, res))
+          .catch(error => returnError(error, res))
+      }
+    })
+    .catch(error => returnError(error, res))
 })
 
 app.get("/api/events", function(req, res) {
   Event.find({})
     .populate('postedBy', '-password -__v')
-    .then(resp => {
-      res.json({status: "succss", data: resp})
-    })
-    .catch(error => {
-      req.json({status: "error", message: "No events found."})
-    })
+    .select('-__v')
+    .then(resp => returnSuccess(resp, res))
+    .catch(error => returnError(error, res))
 })
 
 app.get("/api/event/:id", function(req, res) {
-  const _id = req.params.id
+  const eventId = req.params.id
 
-  Event.findOne({_id: new mongoose.Types.ObjectId(_id)})
-    .populate("postedBy", '-password -__v')
-    .populate("comments", '-__v')
-    .then(result => {
-      res.json({status: "success", data: result})
+  Event.findOne({_id: new mongoose.Types.ObjectId(eventId)})
+    .select('-__v')
+    .populate('postedBy', '-password -__v')
+    .populate({
+      path: 'comments',
+      select: '-forEvent -__v',
+      populate: { path: 'postedBy', select: '-password -__v' }
     })
-    .catch(error => {
-      res.json({status: "error", message: error.message})
-    })
-
+    .then(result => returnSuccess(result, res))
+    .catch(error => returnError(error, res))
 })
 
 app.post("/api/event", function(req, res) {
   const newEvent = new Event(req.body)
-  newEvent.save(function (err, event) {
-    if (err) return console.error(err);
-
-    console.log(event.title + " added!");
-    res.json({status: "success", data: event})
-  })
+  newEvent.save()
+    .then(event => returnSuccess(event, res))
+    .catch(error => returnError(error, res))
 })
 
 app.post("/api/comment", function(req, res) {
@@ -143,28 +135,16 @@ app.post("/api/comment", function(req, res) {
         { _id: eventId },
         { $push: { comments: comment._id } }
       )
-      .then(event =>{
-        console.log("Comment added!")
-        res.json({status: "success", data: comment})
-      })
-      .catch(error => {
-        res.json({status: "error", message: error.message})
-      })
-  })
-  .catch(error => {
-    res.json({status: "error", message: error.message})
-  })
-
+      .then(event => returnSuccess(comment, res))
+      .catch(error => returnError(error, res))
+    })
+    .catch(error => returnError(error, res))
 })
 
 // Send every other request to the React app
 
 app.get('*', (req, res) => {
-  if (!req.user) {
-
-  } else {
     res.sendFile(path.join(clientStaticPath, 'index.html'))
-  }
 })
 
 // Define any API routes before this runs

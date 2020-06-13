@@ -17,6 +17,7 @@ import { Nav, Navbar, NavDropdown, Form, FormControl, Button } from 'react-boots
 import "./App.css"
 import Footer from "./components/Footer";
 import "./components/Footer.css"
+import Navbar2 from './components/NavBar'
 
 
 
@@ -37,6 +38,9 @@ function App() {
     }
   }
 
+//  const location = useLocation()
+
+
   const logonUser = event => {
     event.preventDefault()
 
@@ -56,35 +60,11 @@ function App() {
           showMessage(result.data.message)
         }
       })
-      .catch(console.error)
-  }
-
-  const registerUser = event => {
-    event.preventDefault()
-
-    const form = event.target
-    const credentials = {
-      username: form.username.value,
-      password: form.password.value
-    }
-
-    API.registerUser(credentials)
-      .then(result => {
-        console.log(result)
-        if (result.data.status === 'success') {
-          setIsAuthenticated(true)
-          setUser(result.data.data)
-          form.username.value = ''
-          form.password.value = ''
-          form['confirm-password'].value = ''
-          showMessage("User registered successfully!")
-        } else {
-          showMessage(result.data.message)
-        }
+      .catch(error => {
+        console.log(error)
+        showMessage(error.message)
       })
-      .catch(console.error)
   }
-
 
   const handleLogout = event => {
     event.preventDefault()
@@ -97,7 +77,9 @@ function App() {
   return (
     <Router>
       <div>
-        <Navbar className="color-nav" expand="lg" isAuthenticated={isAuthenticated} handleLogout={handleLogout}>
+        <Navbar2 isAuthenticated={isAuthenticated} handleLogout={handleLogout}/>
+
+        {/* <Navbar className="color-nav" expand="lg" isAuthenticated={isAuthenticated} handleLogout={handleLogout}>
           <Navbar.Brand className="style-brand" style={{color: "#FAFAD2", fontFamily:"'Anton', sans-serif", fontSize:"50px"}} href="/" >Organizing for Change</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -115,18 +97,25 @@ function App() {
               }
             </Nav>
           </Navbar.Collapse>
-        </Navbar>
+        </Navbar> */}
     
         {/* react router is responding to what the path is */}
         <Route exact path="/" component={Home} />
         <Route path="/history" component={History} />
-        <Route path="/EventMain" component={EventMain} />
+        <Route path="/EventMain" render={props =>
+          <EventMain {...props}
+            user={user}
+            isAuthenticated={isAuthenticated} />
+        } />
         <Route path="/EventDetail" component={EventDetail} />
-        <Route path="/AddEvent" component={AddEvent} />
+        <Route path="/AddEvent" render={props =>
+          <AddEvent {...props}
+            user={user}
+            isAuthenticated={isAuthenticated} />
+        } />
         <Route path="/AddComment" component={AddComment} />
         <Route path="/sign-up" render={props =>
           <RegisterForm {...props}
-            onSubmit={registerUser}
             errorMessage={errorMessage}
             showMessage={showMessage}
             isAuthenticated={isAuthenticated} />

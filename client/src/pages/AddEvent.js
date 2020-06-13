@@ -11,8 +11,14 @@ function AddEvent(props){
         Go Back
       </Link>
 
-      <Route exact path={`${props.match.url}/AddEvent`} component={AddEvent} />
-      <AddEventForm/>
+      <Route exact path={`${props.match.url}/AddEvent`} render={props =>
+          <AddEvent {...props}
+            user={props.user}
+            isAuthenticated={props.isAuthenticated} />
+        } />
+      <AddEventForm
+        user={props.user}
+        isAuthenticated={props.isAuthenticated} />
     </div>
   );
 }
