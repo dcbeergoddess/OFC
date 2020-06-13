@@ -109,7 +109,7 @@ function App() {
                 </>
                 :
                 <>
-                  <Nav.Link className="style-link" href="/sign-up"style={{color: "#CD4545", fontFamily:"'Anton', sans-serif", fontSize:"30px"}}>Sign-Up</Nav.Link>
+                  <Nav.Link className="style-link" href="/sign-up"style={{color: "#FAFAD2", fontFamily:"'Anton', sans-serif", fontSize:"30px"}}>Sign-Up</Nav.Link>
                   <Nav.Link className="style-link" href="/login"style={{color: "#CD4545", fontFamily:"'Anton', sans-serif", fontSize:"30px"}}>Login</Nav.Link>
                 </>
               }
