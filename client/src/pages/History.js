@@ -8,7 +8,7 @@ import Stats from "./Stats";
 function History(props){
   return (
     <>
-      <h1>History of Systemic Inequality</h1>
+      <h1 style={{paddingTop:"20px"}}>History of Systemic Inequality</h1>
 
       <div className="historyContainer">
         {timelineJson.map(timeline => (
