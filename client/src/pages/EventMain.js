@@ -23,6 +23,7 @@ function EventMain(props) {
       </div>
   
         {eventsjson.map(event => (
+          <Flex container width="100%" flexDirection="column" justifyContent="space-around">
           <div className= "EventCard">
             <EventCard
               key={event.id}
@@ -34,6 +35,7 @@ function EventMain(props) {
               description={event.description}
             />
             </div>
+        </Flex>
         ))}
 
       <Route exact path={`${props.match.url}/EventMain`} component={EventMain} />
