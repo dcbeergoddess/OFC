@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, Route } from "react-router-dom";
+import {Flex} from "../components/Flex";
 import EventCard from "../components/EventCard"
 import eventsjson from "../events.json";
 import "../components/EventCard.css"
