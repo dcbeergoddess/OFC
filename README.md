@@ -12,13 +12,15 @@
 
 **Final Presentaion in Progress:** [Google Slides Link](https://docs.google.com/presentation/d/1jiH-MP6-g3o69Q3_MKwAVBLjMlYnj4fWMCtSHipjblw/edit#slide=id.p)
 
-**FlexboxDemo** [Ray's Flexbox Demo](https://github.com/rayfor1/flexbox-code-demo)
+**FlexboxDemo:** [Ray's Flexbox Demo](https://github.com/rayfor1/flexbox-code-demo)
+
+**OFC BRAND GUIDE:** [Link to our Syle Guide](https://dcbeergoddess.github.io/OFC_Brand_Guide/)
 
 
 
 ## Description
 
-An app to mobilize unity and create a safe space in the technological world to promote local efforts organinizing against racial inequality. 
+A React MERN Stack app created to mobilize unity, provide a safe space in the technological world and promote events in the Washington, DC area that are organizing against racial inequality. 
 
 
 ## Table Of Contents
@@ -33,28 +35,29 @@ An app to mobilize unity and create a safe space in the technological world to p
 
 ## Tech Stack
 
-React
-React Bootstrap
-Flexbox
-Node
-MongoDB
-HTML
-CSS
-JavaScript
-Heroku
+- React
+- React Bootstrap
+- Flexbox
+- Node
+- MongoDB
+- HTML
+- CSS
+- JavaScript
+- Heroku
 
 ## User Story
 
-Using the deployed heroku app link, a user will be able to view the home page of the site and also any educational materials provided by the site. A user can create and account in order to view events in the DMV area related to the Black Lives Matter movement. A user can also log in with an existing account. Any user with an account can also create an info card for any events they are organinzing or hosting.
+Using the deployed heroku app link, a user will be able to view the home page of the site and any educational materials provided by the site. A user can create an account or log in with an existing account to view events in the DMV area related to the Black Lives Matter movement and other local efforts orgainizing against racial inequality in our Nation. Any user with an account can create an info card for any events they are organinzing or hosting to be displayed on the site's event page.
 
 ## Screenshot
 
-Coming Soon!
+![Image](https://user-images.githubusercontent.com/59098488/84571547-dc704680-ad61-11ea-9ac4-396b177b1f1d.png)
 
 ## Credits
 
 **Website Background Image**
-<a href="https://www.freepik.com/free-photos-vectors/background">Background photo created by benzoix - www.freepik.com</a>
+
+[Background photo created by benzoix - www.freepik.com](https://www.freepik.com/free-photos-vectors/background)
 
 **History of Inequality Info**
 
@@ -62,8 +65,8 @@ Coming Soon!
 
 ## Collaborators
 * **Rachel Murray** | ![Image of dcbeergoddess](https://avatars0.githubusercontent.com/u/59098488?v=4&s=25) | [@rachel](https://github.com/dcbeergoddess) | ![GitHub followers](https://img.shields.io/github/followers/dcbeergoddess?label=Follow&style=social)
-* **Raymond A** | [@ray](https://github.com/rayfor1) | ![GitHub followers](https://img.shields.io/github/followers/rayfor1?label=Follow&style=social)
-* **Bryan Fennell** | [@bryan](https://github.com/bryan3023) | ![GitHub followers](https://img.shields.io/github/followers/bryan3023?label=Follow&style=social)
+* **Raymond A** | :dragon_face: | [@ray](https://github.com/rayfor1) | ![GitHub followers](https://img.shields.io/github/followers/rayfor1?label=Follow&style=social)
+* **Bryan Fennell** | :tiger: | [@bryan](https://github.com/bryan3023) | ![GitHub followers](https://img.shields.io/github/followers/bryan3023?label=Follow&style=social)
 * **Claudia Love Petty** | ![Image of claudialove](https://avatars2.githubusercontent.com/u/59115351?v=4&s=25) | [@claudia](https://github.com/claudialove) | ![GitHub followers](https://img.shields.io/github/followers/claudialove?label=Follow&style=social)
 
 ## License

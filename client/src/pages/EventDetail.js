@@ -1,6 +1,6 @@
 import React from "react";
 import {Link, Route} from "react-router-dom";
-// import {Flex} from './src/components/Flex.js'
+import {Flex} from "../components/Flex";
 import EventCard from "../components/EventCard"
 import eventsjson from "../events.json"
 
@@ -19,7 +19,7 @@ function EventDetail(props){
       </Link>
         </div>
       </div>
-      <div>
+      <Flex>
       {eventsjson.map(event => (
           <EventCard 
           key={event.id}
@@ -30,7 +30,7 @@ function EventDetail(props){
           location={event.location}
           />
       ))}
-      </div>
+      </Flex>
 
       <Link to="/EventMain" role="button" className="btn btn-link">
         Go Back
