@@ -96,19 +96,19 @@ function App() {
     <Router>
       <div>
         <Navbar className="color-nav" expand="lg" isAuthenticated={isAuthenticated} handleLogout={handleLogout}>
-          <Navbar.Brand className="style-brand" href="/" >Organizing for Change</Navbar.Brand>
+          <Navbar.Brand className="style-brand" style={{color: "#FAFAD2", fontFamily:"'Anton', sans-serif", fontSize:"50px"}} href="/" >Organizing for Change</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link className="style-link" href="/history">History of Inequality</Nav.Link>
+              <Nav.Link className="style-link" href="/history" style={{color: "#CD4545", fontFamily:"'Anton', sans-serif", fontSize:"30px"}}>History of Inequality</Nav.Link>
               {isAuthenticated ?
                 <>
                   <Button className="style-link" variant="link" onClick={handleLogout}>Logout</Button>
                 </>
                 :
                 <>
-                  <Nav.Link className="style-link" href="/sign-up">Sign-Up</Nav.Link>
-                  <Nav.Link className="style-link" href="/login">Login</Nav.Link>
+                  <Nav.Link className="style-link" href="/sign-up"style={{color: "#CD4545", fontFamily:"'Anton', sans-serif", fontSize:"30px"}}>Sign-Up</Nav.Link>
+                  <Nav.Link className="style-link" href="/login"style={{color: "#CD4545", fontFamily:"'Anton', sans-serif", fontSize:"30px"}}>Login</Nav.Link>
                 </>
               }
             </Nav>
