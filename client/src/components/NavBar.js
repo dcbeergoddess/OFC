@@ -1,6 +1,12 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Nav, Navbar } from 'react-bootstrap'
+import { Nav, Navbar, Button } from 'react-bootstrap'
+import './NavBar.css'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import $ from 'jquery';
+import Popper from 'popper.js';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 
 function NavBar2(props) {
@@ -11,40 +17,33 @@ function NavBar2(props) {
 
   const renderNavLink = (path, text) =>
     <Nav.Link>
-      <Link to={path} className={location.pathname === {path} ? "nav-link active" : "nav-link"}>
+      <Link to ={path} className="style-link" style={{color: "#CD4545", fontFamily:"'Anton', sans-serif", fontSize:"30px"}}>
         {text}
       </Link>
     </Nav.Link>
 
 
-  return (
-    <Navbar bg="dark" variant="dark" expand="lg">
-      <Navbar.Brand><Link to="/" className="navbar-brand">Organizing for Change</Link></Navbar.Brand>
-      <div className="ml-auto">
-        <Navbar.Toggle aria-controls="basic-navbar-nav ml-auto" />
-      </div>
-      <div>
-        <Navbar.Collapse id="basic-navbar-nav navbar-right">
-          <Nav className="nav-bar nav">
-            {renderNavLink('/history', 'A History of Inequality')}
-            {props.isAuthenticated ?
-              <>
-                {renderNavLink('/EventMain', 'Events')}
-                <Nav.Link>
-                  <Link onClick={props.handleLogout} className="nav-link"> Logout</Link>
-                </Nav.Link>
-              </>
-              :
-              <>
-                {renderNavLink('/sign-up', 'Sign-up')}
-                {renderNavLink('/login', 'Login')}
-              </>
-            }
-          </Nav>
-        </Navbar.Collapse>
-      </div>
+  return (<>
+    <Navbar className="color-nav" expand="lg" isAuthenticated={props.isAuthenticated} handleLogout={props.handleLogout}>
+      <Navbar.Brand className="style-brand" style={{color: "#FAFAD2", fontFamily:"'Anton', sans-serif", fontSize:"50px"}}>
+        <Link to="/"  className="style-brand" style={{color: "#FAFAD2", fontFamily:"'Anton', sans-serif", fontSize:"50px"}}>Organizing for Change</Link>
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          {renderNavLink('/history', 'History of Inequality')}
+          {props.isAuthenticated ?
+            <Button className="style-link" variant="link" onClick={props.handleLogout} style={{color: "#CD4545", fontFamily:"'Anton', sans-serif", fontSize:"30px"}}>Logout</Button>
+            :
+            <>
+              {renderNavLink('/sign-up', 'Sign-up')}
+              {renderNavLink('/login', 'Login')}
+            </>
+          }
+        </Nav>
+      </Navbar.Collapse>
     </Navbar>
-  )
+  </>)
 }
 
 export default NavBar2;

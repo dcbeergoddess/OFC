@@ -1,4 +1,5 @@
 import React from "react";
+import {Link } from 'react-router-dom'
 import "../components/Flex"
 import "./Home.css"
 
@@ -6,15 +7,9 @@ function Home() {
   return (
     <>
       <div className="jumbotron jumbotron-fluid">
-<<<<<<< HEAD
-        <div className="container-fluid">
-          <h1 className="display-4">Black Lives Matter</h1>
-          <p className="lead">Login or Sign Up to Find Events in the DMV Area</p>
-=======
         <div className="container">
           <h1 className="display-4"></h1>
           <p className="lead"></p>
->>>>>>> 2e5731b516541018d40054f33f22433ca5ba571d
         </div>
       </div>
       <p style={{fontFamily:"roboto", fontSize: "2.5em"}}>Login or Sign Up to Find Events in the DMV Area</p>
@@ -22,9 +17,9 @@ function Home() {
         Organizing for Change is a site that supports the critical mass of activists in the DMV area who envision a vibrant world in which people of all races create, share and enjoy resources and relationships equitably. By signing up, activists can view and add events happing in the DC area related to building awareness and solutions for racial justice.
       </p>
 
-      <a href="/EventMain" role="button" className="btn btn-lg btn-dark" style={{display: "flex", alignItems: "center", justifyContent: "center", color: "#FAFAD2"}}>
+      <Link to="/EventMain" role="button" className="btn btn-lg btn-dark" style={{display: "flex", alignItems: "center", justifyContent: "center", color: "#FAFAD2"}}>
         See Events
-      </a>
+      </Link>
     </>
 
   );

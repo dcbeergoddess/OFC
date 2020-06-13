@@ -17,6 +17,7 @@ import { Nav, Navbar, NavDropdown, Form, FormControl, Button } from 'react-boots
 import "./App.css"
 import Footer from "./components/Footer";
 import "./components/Footer.css"
+import Navbar2 from './components/NavBar'
 
 
 
@@ -65,8 +66,6 @@ function App() {
       })
   }
 
-
-
   const handleLogout = event => {
     event.preventDefault()
 
@@ -78,26 +77,8 @@ function App() {
   return (
     <Router>
       <div>
-        <Navbar className="color-nav" expand="lg" isAuthenticated={isAuthenticated} handleLogout={handleLogout}>
-          <Navbar.Brand className="style-brand" style={{color: "#FAFAD2", fontFamily:"'Anton', sans-serif", fontSize:"50px"}} href="/" >Organizing for Change</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-              <Nav.Link className="style-link" href="/history" style={{color: "#CD4545", fontFamily:"'Anton', sans-serif", fontSize:"30px"}}>History of Inequality</Nav.Link>
-              {isAuthenticated ?
-                <>
-                  <Button className="style-link" variant="link" onClick={handleLogout} style={{color: "#CD4545", fontFamily:"'Anton', sans-serif", fontSize:"30px"}}>Logout</Button>
-                </>
-                :
-                <>
-                  <Nav.Link className="style-link" href="/sign-up"style={{color: "#CD4545", fontFamily:"'Anton', sans-serif", fontSize:"30px"}}>Sign-Up</Nav.Link>
-                  <Nav.Link className="style-link" href="/login"style={{color: "#CD4545", fontFamily:"'Anton', sans-serif", fontSize:"30px"}}>Login</Nav.Link>
-                </>
-              }
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
-    
+        <Navbar2 isAuthenticated={isAuthenticated} handleLogout={handleLogout}/>
+
         {/* react router is responding to what the path is */}
         <Route exact path="/" component={Home} />
         <Route path="/history" component={History} />

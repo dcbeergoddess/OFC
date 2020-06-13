@@ -40,9 +40,13 @@ class EventMain extends React.Component {
           </div>
         </div>
         <div>
-          <Link to="/AddEvent" role="button" className="btn btn-lg btn-dark btn-block">
-            Add New Event
-      </Link>
+          {this.props.isAuthenticated ?
+            <Link to="/AddEvent" role="button" className="btn btn-lg btn-dark btn-block">
+              Add New Event
+            </Link>
+            :
+            <></>
+          }
         </div>
       </div>
   
