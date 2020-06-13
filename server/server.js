@@ -144,11 +144,7 @@ app.post("/api/comment", function(req, res) {
 // Send every other request to the React app
 
 app.get('*', (req, res) => {
-  if (!req.user) {
-
-  } else {
     res.sendFile(path.join(clientStaticPath, 'index.html'))
-  }
 })
 
 // Define any API routes before this runs
