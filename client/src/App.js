@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Redirect, Link, useLocation } from "react-router-dom";
-import NavTabs from "./components/NavBar";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Home from "./pages/Home";
 import History from "./pages/History";
 import EventMain from "./pages/EventMain";
@@ -11,10 +10,11 @@ import LoginForm from './pages/LoginForm'
 import RegisterForm from './pages/RegisterForm'
 import API from './utils/API'
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import $ from 'jquery';
-// import Popper from 'popper.js';
-// import 'bootstrap/dist/js/bootstrap.bundle.min';
-// import { Nav, Navbar, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
+import $ from 'jquery';
+import Popper from 'popper.js';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import { Nav, Navbar, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
+import "./App.css"
 
 
 
@@ -100,34 +100,27 @@ function App() {
 
   return (
     <Router>
-      {/* Nav bar tabs first */}
-      <NavTabs isAuthenticated={isAuthenticated} handleLogout={handleLogout} />
-
-      {/* <div className="container-fluid mt-0"> */}
-
-        {/* <Navbar bg="dark" expand="lg" className="navbar navbar-expand-md navbar-dark bg-dark justify-content-between">
-          <Navbar.Brand><Link to="/" className="navbar-brand">Organizing for Change</Link></Navbar.Brand>
-          <div>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="mr-auto">
-                <Nav.Link><Link to="/history" className={location.pathname === "/history" ? "nav-link active" : "nav-link"}>
-              History of Change
-            </Link></Nav.Link>
-                {isAuthenticated ?
-                  <>
-                    <Button variant="link" onClick={handleLogout}>Logout</Button>
-                  </>
-                  :
-                  <>
-                    <Nav.Link href="/sign-up">Sign-Up</Nav.Link>
-                    <Nav.Link href="/login">Login</Nav.Link>
-                  </>
-                }
-              </Nav>
-            </Navbar.Collapse>
-          </div>
-        </Navbar> */}
+      <div>
+        <Navbar className="color-nav" expand="lg" isAuthenticated={isAuthenticated} handleLogout={handleLogout}>
+          <Navbar.Brand className="style-brand" href="/" >Organizing for Change</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link className="style-link" href="/history">History of Inequality</Nav.Link>
+              {isAuthenticated ?
+                <>
+                  <Button className="style-link" variant="link" onClick={handleLogout}>Logout</Button>
+                </>
+                :
+                <>
+                  <Nav.Link className="style-link" href="/sign-up">Sign-Up</Nav.Link>
+                  <Nav.Link className="style-link" href="/login">Login</Nav.Link>
+                </>
+              }
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+    
         {/* react router is responding to what the path is */}
         <Route exact path="/" component={Home} />
         <Route path="/history" component={History} />
@@ -153,7 +146,7 @@ function App() {
             errorMessage={errorMessage}
             isAuthenticated={isAuthenticated} />
         } />
-      {/* </div> */}
+      </div>
     </Router>
   );
 }

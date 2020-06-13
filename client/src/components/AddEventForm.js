@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Redirect } from "react";
 import {Link} from "react-router-dom";
 import "./EventCard.css";
 import "./AddEventForm.css";
@@ -40,6 +40,7 @@ class AddEventForm extends Component {
   
     const newEvent = {...this.state}
     newEvent.when = new Date(`${newEvent.date} ${newEvent.time}`)
+    newEvent.postedBy = this.props.user
 
     console.log(newEvent)
 
@@ -59,7 +60,11 @@ class AddEventForm extends Component {
 
   render() {
     // Notice how each input has a `value`, `name`, and `onChange` prop
-    return (
+    return (<>
+      {!this.props.isAuthenticated &&
+        <Redirect to="/" />
+      }
+  
       <div >
         <h1>Add Event</h1>
         <form className="form" onSubmit={this.handleFormSubmit}>
@@ -108,12 +113,8 @@ class AddEventForm extends Component {
             <Link onClick={this.handleFormSubmit} to="/AddEvent" role="button" className="btn btn-lg btn-dark btn-block">Submit</Link>
                  <Link  to={`/AddEvent`} ></Link>
         </form>
-
-
-
- 
       </div>
-    );
+    </>);
   }
 }
 
