@@ -10,7 +10,7 @@ function History(props){
     <>
       <h1>History of Systemic Inequality</h1>
 
-      <Flex container wdith="300px" margin="50px auto" flexDirection="row" display="flex">
+      <Flex container wdith="90%" margin="50px auto" flexDirection="row" display="flex" justifyContent="space-between">
         {timelineJson.map(timeline => (
           <TimelineCard 
           key={timeline.id}

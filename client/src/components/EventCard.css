@@ -7,8 +7,8 @@
   .EventCard {
     justify-content: space-around;
     overflow: auto;
-    display:flex; 
-    flex-wrap:wrap;
+    display: flex; 
+    flex-wrap: wrap;
     flex-flow: row wrap;
   }
 
