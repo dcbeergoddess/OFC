@@ -27,9 +27,9 @@ function History(props){
       </Link>{" "}
       <Link to="/history" role="button" className="btn btn-link">
         Hide Stats
-      </Link>
+      </Link> */}
 
-      <Route exact path={`${props.match.url}/stats`} component={Stats} /> */}
+      <Route exact path={`${props.match.url}/stats`} component={Stats} />
     </>
   );
 }
