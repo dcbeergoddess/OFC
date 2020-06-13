@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import NavTabs from "./components/NavTabs";
 import Home from "./pages/Home";
 import History from "./pages/History";
 import EventMain from "./pages/EventMain";
@@ -15,6 +14,7 @@ import $ from 'jquery';
 import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { Nav, Navbar, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
+import "./App.css"
 
 
 
@@ -95,27 +95,26 @@ function App() {
   return (
     <Router>
       <div>
-        <Navbar bg="dark" expand="lg" isAuthenticated={isAuthenticated} handleLogout={handleLogout}>
-          <Navbar.Brand href="/" >Organizing for Change</Navbar.Brand>
+        <Navbar className="color-nav" expand="lg" isAuthenticated={isAuthenticated} handleLogout={handleLogout}>
+          <Navbar.Brand className="style-brand" href="/" >Organizing for Change</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="/history">History of Change</Nav.Link>
+              <Nav.Link className="style-link" href="/history">History of Inequality</Nav.Link>
               {isAuthenticated ?
                 <>
-                  <Button variant="link" onClick={handleLogout}>Logout</Button>
+                  <Button className="style-link" variant="link" onClick={handleLogout}>Logout</Button>
                 </>
                 :
                 <>
-                  <Nav.Link href="/sign-up">Sign-Up</Nav.Link>
-                  <Nav.Link href="/login">Login</Nav.Link>
+                  <Nav.Link className="style-link" href="/sign-up">Sign-Up</Nav.Link>
+                  <Nav.Link className="style-link" href="/login">Login</Nav.Link>
                 </>
               }
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        {/* Nav bar tabs first */}
-        <NavTabs isAuthenticated={isAuthenticated} handleLogout={handleLogout} />
+    
         {/* react router is responding to what the path is */}
         <Route exact path="/" component={Home} />
         <Route path="/history" component={History} />
