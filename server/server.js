@@ -4,7 +4,6 @@ const
   passport = require('./config/passport'),
   path = require('path'),
   mongoose = require('mongoose')
-  moment = require('moment')
 
 
 const
