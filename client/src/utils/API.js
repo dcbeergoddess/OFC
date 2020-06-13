@@ -32,7 +32,7 @@ export default {
   },
 
   addComment(comment) {
-    const endpoint = `${URL}/api/comment`
+    const endpoint = `${URL}/api/event`
     return axios.post(endpoint, comment)
   }
 }

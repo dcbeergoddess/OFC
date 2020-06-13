@@ -32,6 +32,8 @@ function EventMain(props) {
               time={event.time}
               location={event.location}
               description={event.description}
+              isAuthenticated={props.isAuthenticated}
+              user={props.user}
             />
             </div>
         ))}

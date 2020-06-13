@@ -54,8 +54,7 @@ function RegisterForm(props) {
     {isRegistered &&
       <Redirect to="/login" />
     }
-<div className="form">
-    <div className="row mb-3 mt-5">
+    <div className="row mb-3 mt-3">
       <div className="col-12 col-md-6 offset-md-3">
         <h1 className="text-center mb-4">Register</h1>
         <form className="form-group" onSubmit={registerUser} name='register'>
@@ -95,7 +94,6 @@ function RegisterForm(props) {
         </form>
         {props.errorMessage &&
           <ErrorMessageBox message={props.errorMessage}/>}
-</div>
       </div>
     </div>
   </>)

@@ -6,7 +6,7 @@ function Home() {
   return (
     <>
       <div className="jumbotron jumbotron-fluid">
-        <div className="container">
+        <div className="container-fluid">
           <h1 className="display-4">Black Lives Matter</h1>
           <p className="lead">Login or Sign Up to Find Events in the DMV Area</p>
         </div>

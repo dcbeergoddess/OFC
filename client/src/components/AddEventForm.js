@@ -3,12 +3,18 @@ import {Link} from "react-router-dom";
 import "./EventCard.css";
 import "./AddEventForm.css";
 
+import API from '../utils/API'
+
 
 class AddEventForm extends Component {
+  constructor(props) {
+    super(props)
+  }
+
   // Setting the component's initial state
   state = {
     title: "",
-    image: "",
+    imageUrl: "",
     date: "",
     time: "",
     location: "",
@@ -18,6 +24,12 @@ class AddEventForm extends Component {
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
 
+    event.preventDefault()
+
+    const {name, value} = event.target
+    this.setState({[name]: value})
+
+
     // Updating the input's state
 
   };
@@ -26,10 +38,18 @@ class AddEventForm extends Component {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
   
+    const newEvent = {...this.state}
+    newEvent.when = new Date(`${newEvent.date} ${newEvent.time}`)
+
+    console.log(newEvent)
+
+    API.addEvent(newEvent)
+      .then(alert('success'))
+      .catch(console.error)
 
     this.setState({
         title: "",
-        image: "",
+        imageUrl: "",
         date: "",
         time: "",
         location: "",
@@ -42,7 +62,7 @@ class AddEventForm extends Component {
     return (
       <div >
         <h1>Add Event</h1>
-        <form className="form">
+        <form className="form" onSubmit={this.handleFormSubmit}>
           <input
             value={this.state.title}
             name="title"
@@ -51,8 +71,8 @@ class AddEventForm extends Component {
             placeholder="Event Title"
           />
           <input
-            value={this.state.image}
-            name="image"
+            value={this.state.imageUrl}
+            name="imageUrl"
             onChange={this.handleInputChange}
             type="text"
             placeholder="Image URL"
