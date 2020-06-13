@@ -1,0 +1,61 @@
+.color-nav {
+  background-color: #202020;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration-color: ivory;
+}
+
+/* .style-link not working, probably need to style withing app.js itself with react style languge */
+.style-link {
+  color: ivory;
+  font-size: 2rem;
+  text-decoration: none;
+  line-height: 3;
+}
+
+.btn {
+  color: ivory;
+  font-size: 2rem;
+  text-decoration: none;
+  line-height: 3;
+}
+
+.style-nav:hover {
+  color: yellow;
+}
+
+/* OLD NAVTABS STYLING
+
+.nav {
+  background: #202020;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav a {
+  color: ivory;
+  font-size: 2rem;
+  text-decoration: none;
+  line-height: 3;
+}
+
+.btn {
+  color: ivory;
+  font-size: 2rem;
+  text-decoration: none;
+  line-height: 3;
+}
+
+.nav a:hover {
+  color: yellow;
+}
+
+.nav li:last-child {
+  justify-content: end;
+}
+
+*/
