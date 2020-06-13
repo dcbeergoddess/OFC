@@ -8,10 +8,7 @@ const
 const EventSchema = new Schema({
   title: {
     type: String,
-    required: true,
-    index: {
-      unique: true
-    }
+    required: true
   },
 
   description: {

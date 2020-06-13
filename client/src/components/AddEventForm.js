@@ -1,5 +1,5 @@
-import React, { Component, Redirect } from "react";
-import {Link} from "react-router-dom";
+import React, { Component } from "react";
+import {Link, Redirect} from "react-router-dom";
 import "./EventCard.css";
 import "./AddEventForm.css";
 
@@ -40,12 +40,12 @@ class AddEventForm extends Component {
   
     const newEvent = {...this.state}
     newEvent.when = new Date(`${newEvent.date} ${newEvent.time}`)
-    newEvent.postedBy = this.props.user
+    newEvent.postedBy = this.props.user._id
 
     console.log(newEvent)
 
     API.addEvent(newEvent)
-      .then(alert('success'))
+      .then(this.setState({submitted: true}))
       .catch(console.error)
 
     this.setState({
@@ -61,59 +61,59 @@ class AddEventForm extends Component {
   render() {
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (<>
-      {!this.props.isAuthenticated &&
-        <Redirect to="/" />
-      }
-  
+      {!this.props.isAuthenticated && <Redirect to="/" />}
+      {this.state.submitted && <Redirect to="/EventMain" />}
+
       <div >
-        <h1>Add Event</h1>
-        <form className="form" onSubmit={this.handleFormSubmit}>
-          <input
-            value={this.state.title}
-            name="title"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="Event Title"
-          />
-          <input
-            value={this.state.imageUrl}
-            name="imageUrl"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="Image URL"
-          />
-          <input
-            value={this.state.date}
-            name="date"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="Event Date"
-          />
-                    <input
-            value={this.state.time}
-            name="time"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="Event Start Time"
-          />
-                    <input
-            value={this.state.location}
-            name="location"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="Event Meet Up Location"
-          />
-          <input
-            value={this.state.description}
-            name="description"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="Event Description"
-          />
-            <Link onClick={this.handleFormSubmit} to="/AddEvent" role="button" className="btn btn-lg btn-dark btn-block">Submit</Link>
-                 <Link  to={`/AddEvent`} ></Link>
-        </form>
-      </div>
+      <h1>Add Event</h1>
+      <form className="form" onSubmit={this.handleFormSubmit}>
+        <input
+          value={this.state.title}
+          name="title"
+          onChange={this.handleInputChange}
+          type="text"
+          placeholder="Event Title"
+        />
+        <input
+          value={this.state.imageUrl}
+          name="imageUrl"
+          onChange={this.handleInputChange}
+          type="text"
+          placeholder="Image URL"
+        />
+        <input
+          value={this.state.date}
+          name="date"
+          onChange={this.handleInputChange}
+          type="text"
+          placeholder="Event Date"
+        />
+                  <input
+          value={this.state.time}
+          name="time"
+          onChange={this.handleInputChange}
+          type="text"
+          placeholder="Event Start Time"
+        />
+                  <input
+          value={this.state.location}
+          name="location"
+          onChange={this.handleInputChange}
+          type="text"
+          placeholder="Event Meet Up Location"
+        />
+        <input
+          value={this.state.description}
+          name="description"
+          onChange={this.handleInputChange}
+          type="text"
+          placeholder="Event Description"
+        />
+          <Link onClick={this.handleFormSubmit} to="/AddEvent" role="button" className="btn btn-lg btn-dark btn-block">Submit</Link>
+               <Link  to={`/AddEvent`} ></Link>
+      </form>
+    </div>
+
     </>);
   }
 }

@@ -63,31 +63,6 @@ function App() {
       })
   }
 
-  const registerUser = event => {
-    event.preventDefault()
-
-    const form = event.target
-    const credentials = {
-      username: form.username.value,
-      password: form.password.value
-    }
-
-    API.registerUser(credentials)
-      .then(result => {
-        console.log(result)
-        if (result.data.status === 'success') {
-          setIsAuthenticated(true)
-          setUser(result.data.data)
-          form.username.value = ''
-          form.password.value = ''
-          form['confirm-password'].value = ''
-          showMessage("User registered successfully!")
-        } else {
-          showMessage(result.data.message)
-        }
-      })
-      .catch(console.error)
-  }
 
 
   const handleLogout = event => {
@@ -130,11 +105,14 @@ function App() {
             isAuthenticated={isAuthenticated} />
         } />
         <Route path="/EventDetail" component={EventDetail} />
-        <Route path="/AddEvent" component={AddEvent} />
+        <Route path="/AddEvent" render={props =>
+          <AddEvent {...props}
+            user={user}
+            isAuthenticated={isAuthenticated} />
+        } />
         <Route path="/AddComment" component={AddComment} />
         <Route path="/sign-up" render={props =>
           <RegisterForm {...props}
-            onSubmit={registerUser}
             errorMessage={errorMessage}
             showMessage={showMessage}
             isAuthenticated={isAuthenticated} />
