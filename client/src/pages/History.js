@@ -10,7 +10,7 @@ function History(props){
     <>
       <h1>History of Systemic Inequality</h1>
 
-      <div className="historyContainer">
+      <Flex container wdith="300px" margin="50px auto" flexDirection="row" display="flex">
         {timelineJson.map(timeline => (
           <TimelineCard 
           key={timeline.id}
@@ -20,16 +20,16 @@ function History(props){
           text={timeline.text}
           />
         ))}
-      </div>
+      </Flex>
 
       {/* <Link to={`${props.match.url}/stats`} role="button" className="btn btn-link">
         SHOW Stats
       </Link>{" "}
       <Link to="/history" role="button" className="btn btn-link">
         Hide Stats
-      </Link>
+      </Link> */}
 
-      <Route exact path={`${props.match.url}/stats`} component={Stats} /> */}
+      <Route exact path={`${props.match.url}/stats`} component={Stats} />
     </>
   );
 }
