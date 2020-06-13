@@ -1,20 +1,26 @@
 # Organizing for Change
 
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/dcbeergoddess/OFC)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![GitHub last commit](https://img.shields.io/github/last-commit/dcbeergoddess/OFC)
+![GitHub language count](https://img.shields.io/github/languages/count/dcbeergoddess/OFC)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/dcbeergoddess/OFC)
+![GitHub repo size](https://img.shields.io/github/repo-size/dcbeergoddess/OFC)
 
-**TRELLO LINK:** [Manage CRRB Group Tasks](https://trello.com/b/2Z5joq2O/project-3)
 
-**GIT HUB REPO:** [GROUP CRRB](https://github.com/dcbeergoddess/OFC)
 
-**Deployed Heroku Link:** [Organizing for Change]()
+**TRELLO LINK:** [Project Management](https://trello.com/b/2Z5joq2O/project-3)
 
-**Design Presentation:** [Google Slides Link](https://docs.google.com/presentation/d/1fr1Q_iQJeQJ2gurLSHNProQRZ4vYwb5JzW5t53i_9Io/edit#slide=id.p)
+**GIT HUB REPO:** [Organizing for Change](https://github.com/dcbeergoddess/OFC)
 
-**Final Presentaion in Progress:** [Google Slides Link](https://docs.google.com/presentation/d/1jiH-MP6-g3o69Q3_MKwAVBLjMlYnj4fWMCtSHipjblw/edit#slide=id.p)
+**Deployed Project:** [Heroku OFC]()
+
+**Design Presentation:** [Google Slides OFC](https://docs.google.com/presentation/d/1fr1Q_iQJeQJ2gurLSHNProQRZ4vYwb5JzW5t53i_9Io/edit#slide=id.p)
+
+**Final Presentaion:** [Google Slides OFC](https://docs.google.com/presentation/d/1jiH-MP6-g3o69Q3_MKwAVBLjMlYnj4fWMCtSHipjblw/edit#slide=id.p)
 
 **FlexboxDemo:** [Ray's Flexbox Demo](https://github.com/rayfor1/flexbox-code-demo)
 
-**OFC BRAND GUIDE:** [Link to our Syle Guide](https://dcbeergoddess.github.io/OFC_Brand_Guide/)
+**OFC BRAND GUIDE:** [Link to Style Guide](https://dcbeergoddess.github.io/OFC_Brand_Guide/)
 
 
 
@@ -35,7 +41,7 @@ A React MERN Stack app created to mobilize unity, provide a safe space in the te
 
 ## Tech Stack
 
-- React
+- React.js
 - React Bootstrap
 - Flexbox
 - Node
@@ -47,11 +53,11 @@ A React MERN Stack app created to mobilize unity, provide a safe space in the te
 
 ## User Story
 
-Using the deployed heroku app link, a user will be able to view the home page of the site and any educational materials provided by the site. A user can create an account or log in with an existing account to view events in the DMV area related to the Black Lives Matter movement and other local efforts orgainizing against racial inequality in our Nation. Any user with an account can create an info card for any events they are organinzing or hosting to be displayed on the site's event page.
+Using the deployed heroku app link, a user will be able to view the home page of the site and any educational materials provided by the site. A user can create an account or log in with an existing account to view events in the DMV area related to the Black Lives Matter movement and other local efforts orgainizing against racial inequality in our Nation. Any user with an account can create an info card for any events they are organinzing or hosting and the event will be displayed on the site's event page.
 
 ## Screenshot
 
-![Image](https://user-images.githubusercontent.com/59098488/84571547-dc704680-ad61-11ea-9ac4-396b177b1f1d.png)
+![Image](https://user-images.githubusercontent.com/59098488/84574187-c323c600-ad72-11ea-9774-d1c5f2eb0196.png)
 
 ## Credits
 
