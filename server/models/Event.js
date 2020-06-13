@@ -2,8 +2,8 @@ const
   mongoose = require('mongoose')
 
 const
-  Schema = mongoose.Schema
-
+  Schema = mongoose.Schema,
+  schemaOptions = { toJSON: { virtuals: true } }
 
 const EventSchema = new Schema({
   title: {
@@ -24,7 +24,7 @@ const EventSchema = new Schema({
     required: true
   },
 
-  dateTime: {
+  when: {
     type: Date,
     required: true
   },
@@ -48,10 +48,10 @@ const EventSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Comment"
   }]
-})
+}, schemaOptions)
 
-EventSchema.virtual('commentCount').get(function() {  
-  return this.comments.length
+EventSchema.virtual('commentCount').get(function() {
+  return this.comments ? this.comments.length : 0
 })
 
 module.exports = mongoose.model('Event', EventSchema)
