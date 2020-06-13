@@ -105,7 +105,7 @@ function App() {
               <Nav.Link className="style-link" href="/history" style={{color: "#CD4545", fontFamily:"'Anton', sans-serif", fontSize:"30px"}}>History of Inequality</Nav.Link>
               {isAuthenticated ?
                 <>
-                  <Button className="style-link" variant="link" onClick={handleLogout}>Logout</Button>
+                  <Button className="style-link" variant="link" onClick={handleLogout} style={{color: "#CD4545", fontFamily:"'Anton', sans-serif", fontSize:"30px"}}>Logout</Button>
                 </>
                 :
                 <>

@@ -15,8 +15,7 @@ class EventCard extends React.Component {
                 <h6 > <strong>Start Time: </strong>{this.props.time}</h6>
                 <h6 > <strong>Meetup Location:</strong> {this.props.location}</h6>
                 <h6><strong>Event Description: </strong>{this.props.description}</h6>
-                <Link to="/EventDetail" role="button" className="btn btn-dark">See Details</Link>
-                <Link to={`/EventMain`} ></Link>
+
             </div>
         )
 
