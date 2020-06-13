@@ -57,7 +57,7 @@ Using the deployed heroku app link, a user will be able to view the home page of
 
 **Website Background Image**
 
-[Background photo created by benzoix - www.freepik.com]("https://www.freepik.com/free-photos-vectors/background")
+[Background photo created by benzoix - www.freepik.com](https://www.freepik.com/free-photos-vectors/background)
 
 **History of Inequality Info**
 
