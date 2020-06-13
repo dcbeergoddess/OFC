@@ -8,6 +8,7 @@ import "../index.css";
 class EventCard extends React.Component {
     render() {
         return (
+
             <Flex container width="100%" justifyContent="space-around">
                 <div className="card">
                     <h1 className="name">{this.props.title}</h1>
