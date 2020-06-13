@@ -1,9 +1,17 @@
 import React, { Component } from "react";
-import {Link, Redirect} from "react-router-dom";
+import {Link, Redirect } from "react-router-dom";
 import "./EventCard.css";
 import "./AddEventForm.css";
 
 import API from '../utils/API'
+import moment from 'moment'
+
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css"
+import 'bootstrap/dist/css/bootstrap.min.css'
+import TimePicker from 'rc-time-picker'
+import 'rc-time-picker/assets/index.css'
+import defaultImage from '../assets/images/BLM_StreetSign.png'
 
 
 class AddEventForm extends Component {
@@ -34,18 +42,29 @@ class AddEventForm extends Component {
 
   };
 
+
   handleFormSubmit = event => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
   
     const newEvent = {...this.state}
-    newEvent.when = new Date(`${newEvent.date} ${newEvent.time}`)
+
+    const
+      date = moment(this.state.date, moment.HTML5_FMT.DATE),
+      time = moment(this.state.time, moment.HTML5_FMT.TIME)
+
+    newEvent.when = date.hour(time.hour()).minute(time.minute()).toDate()
     newEvent.postedBy = this.props.user._id
 
-    console.log(newEvent)
+    if (!this.state.imageUrl) {
+      newEvent.imageUrl = defaultImage
+    }
 
     API.addEvent(newEvent)
-      .then(this.setState({submitted: true}))
+      .then(() => {
+        this.props.setEventCount(0)
+        this.setState({submitted: true})
+      })
       .catch(console.error)
 
     this.setState({
@@ -55,7 +74,8 @@ class AddEventForm extends Component {
         time: "",
         location: "",
         description: ""
-    });
+    })
+
   };
 
   render() {
@@ -85,16 +105,22 @@ class AddEventForm extends Component {
           value={this.state.date}
           name="date"
           onChange={this.handleInputChange}
-          type="text"
+          type="date"
           placeholder="Event Date"
         />
-                  <input
+        <label>Date</label>
+        <div style={{justifyContent: "between"}}>
+        <label>Time</label>
+        <input
           value={this.state.time}
           name="time"
           onChange={this.handleInputChange}
-          type="text"
+          type="time"
+          step={0}
           placeholder="Event Start Time"
         />
+
+        </div>
                   <input
           value={this.state.location}
           name="location"

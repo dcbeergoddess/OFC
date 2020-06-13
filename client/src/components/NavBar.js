@@ -33,7 +33,10 @@ function NavBar2(props) {
         <Nav className="mr-auto">
           {renderNavLink('/history', 'History of Inequality')}
           {props.isAuthenticated ?
-            <Button className="style-link" variant="link" onClick={props.handleLogout} style={{color: "#CD4545", fontFamily:"'Anton', sans-serif", fontSize:"30px"}}>Logout</Button>
+            <>
+              {renderNavLink('/EventMain', 'Events')}
+              <Button className="style-link" variant="link" onClick={props.handleLogout} style={{color: "#CD4545", fontFamily:"'Anton', sans-serif", fontSize:"30px"}}>Logout</Button>
+            </>
             :
             <>
               {renderNavLink('/sign-up', 'Sign-up', '#FAFAD2')}

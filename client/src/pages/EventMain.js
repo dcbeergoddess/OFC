@@ -11,31 +11,31 @@ import API from '../utils/API'
 class EventMain extends React.Component {
 
   state = {
-    events: []
+    events: [],
+    refresh: false
   }
 
   getEvents = () => {
     API.getAllEvents()
       .then(results => {
-        this.setState({events: results.data.data})
+        const events = results.data.data
+        this.setState({events: events})
+        this.props.setEventCount(events.length)
       })
       .catch(console.error)
   }
 
-  // componentDidMount = () => {
-  //   this.getEvents()
-  // }
+  componentDidMount() {
+    this.getEvents()
+  }
+
 
   render = () => {
   return (
     <>
-      {
-        // workaround to ensure latest events are added after redirect
-        (async () => await this.getEvents())() ? null : null
-      }
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12">
             <h1>Get Involved Today!! </h1>
             <h3> Browse events or leave comments on existing events</h3>
           </div>
@@ -50,27 +50,9 @@ class EventMain extends React.Component {
           }
         </div>
       </div>
-  
-        {/* {eventsjson.map(event => (
-          <div className= "EventCard">
-            <EventCard
-              key={event.id}
-              title={event.title}
-              image={event.image}
-              date={event.date}
-              time={event.time}
-              location={event.location}
-              description={event.description}
-              isAuthenticated={this.props.isAuthenticated}
-              user={this.props.user}
-            />
-            </div>
-        ))} */}
-
         {this.state.events.map(event => (
-          <div className= "EventCard">
+          <div className= "EventCard" key={event._id}>
             <EventCard
-              key={event._id}
               title={event.title}
               image={event.imageUrl}
               date={event.when}

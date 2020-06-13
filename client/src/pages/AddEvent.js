@@ -18,7 +18,8 @@ function AddEvent(props){
         } />
       <AddEventForm
         user={props.user}
-        isAuthenticated={props.isAuthenticated} />
+        isAuthenticated={props.isAuthenticated}
+        setEventCount={props.setEventCount} />
     </div>
   );
 }

@@ -29,6 +29,7 @@ function App() {
     _id: ""
   })
   const [errorMessage, setErrorMessage] = useState("")
+  const [eventCount, setEventCount] = useState(0)
 
   const showMessage = (message, timeout = 3000) => {
     setErrorMessage(message)
@@ -79,39 +80,21 @@ function App() {
       <div>
         <Navbar2 isAuthenticated={isAuthenticated} handleLogout={handleLogout}/>
 
-        {/* <Navbar className="color-nav" expand="lg" isAuthenticated={isAuthenticated} handleLogout={handleLogout}>
-          <Navbar.Brand className="style-brand" style={{color: "#FAFAD2", fontFamily:"'Anton', sans-serif", fontSize:"50px"}} href="/" >Organizing for Change</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-              <Nav.Link className="style-link" href="/history" style={{color: "#CD4545", fontFamily:"'Anton', sans-serif", fontSize:"30px"}}>History of Inequality</Nav.Link>
-              {isAuthenticated ?
-                <>
-                  <Button className="style-link" variant="link" onClick={handleLogout} style={{color: "#CD4545", fontFamily:"'Anton', sans-serif", fontSize:"30px"}}>Logout</Button>
-                </>
-                :
-                <>
-                  <Nav.Link className="style-link" href="/sign-up"style={{color: "#FAFAD2", fontFamily:"'Anton', sans-serif", fontSize:"30px"}}>Sign-Up</Nav.Link>
-                  <Nav.Link className="style-link" href="/login"style={{color: "#CD4545", fontFamily:"'Anton', sans-serif", fontSize:"30px"}}>Login</Nav.Link>
-                </>
-              }
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar> */}
-    
         {/* react router is responding to what the path is */}
         <Route exact path="/" component={Home} />
         <Route path="/history" component={History} />
         <Route path="/EventMain" render={props =>
           <EventMain {...props}
             user={user}
-            isAuthenticated={isAuthenticated} />
+            isAuthenticated={isAuthenticated}
+            setEventCount={setEventCount} />
         } />
         <Route path="/EventDetail" component={EventDetail} />
         <Route path="/AddEvent" render={props =>
           <AddEvent {...props}
             user={user}
-            isAuthenticated={isAuthenticated} />
+            isAuthenticated={isAuthenticated}
+            setEventCount={setEventCount} />
         } />
         <Route path="/AddComment" component={AddComment} />
         <Route path="/sign-up" render={props =>
