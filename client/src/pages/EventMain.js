@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, Route } from "react-router-dom";
+import { Link, Route, Redirect } from "react-router-dom";
 import {Flex} from "../components/Flex";
 import EventCard from "../components/EventCard"
 import eventsjson from "../events.json";
@@ -33,6 +33,8 @@ class EventMain extends React.Component {
   render = () => {
   return (
     <>
+          {!this.props.isAuthenticated && <Redirect to="/" />}
+
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
