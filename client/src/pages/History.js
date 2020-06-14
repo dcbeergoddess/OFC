@@ -10,9 +10,9 @@ function History(props){
     <>
       <h1 style={{paddingTop:"20px"}}>History of Systemic Inequality</h1>
 
-      <div className="historyContainer">
+      <Flex container display="flex" wdith="90%" margin="50px auto" flexDirection="row" justifyContent="space-between">
         {timelineJson.map(timeline => (
-          <TimelineCard 
+          <TimelineCard
           key={timeline.id}
           title={timeline.title}
           date={timeline.date}
@@ -20,7 +20,7 @@ function History(props){
           text={timeline.text}
           />
         ))}
-      </div>
+      </Flex>
 
       {/* <Link to={`${props.match.url}/stats`} role="button" className="btn btn-link">
         SHOW Stats
