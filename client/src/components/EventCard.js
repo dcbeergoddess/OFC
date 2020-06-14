@@ -16,6 +16,7 @@ class EventCard extends React.Component {
                     <img src={this.props.image}
                         alt={this.props.title} />
                     <h6 > <strong>Event Date: </strong> 
+                        <Moment format="MM/DD/YYYY">{this.props.date}</Moment>
                     </h6>
                     <h6 > <strong>Start Time: </strong>
                         <Moment format="h:mma">{this.props.date}</Moment>
