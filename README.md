@@ -12,7 +12,7 @@
 
 **GIT HUB REPO:** [Organizing for Change](https://github.com/dcbeergoddess/OFC)
 
-**Deployed Project:** [Heroku OFC]()
+**Deployed Project:** [Heroku OFC](https://organizing-for-change.herokuapp.com/)
 
 **Design Presentation:** [Google Slides OFC](https://docs.google.com/presentation/d/1fr1Q_iQJeQJ2gurLSHNProQRZ4vYwb5JzW5t53i_9Io/edit#slide=id.p)
 
