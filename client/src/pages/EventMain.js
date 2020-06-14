@@ -36,8 +36,8 @@ class EventMain extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <h1>Get Involved Today!! </h1>
-            <h3> Browse events or leave comments on existing events</h3>
+            <h1>Get Involved</h1>
+            <h3> Browse events or add a new event</h3>
           </div>
         </div>
         <div>
