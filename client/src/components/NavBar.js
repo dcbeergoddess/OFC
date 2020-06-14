@@ -28,8 +28,8 @@ function NavBar2(props) {
       <Navbar.Brand className="style-brand" style={{color: "#FAFAD2", fontFamily:"'Anton', sans-serif", fontSize:"50px"}}>
         <Link to="/"  className="style-brand" style={{color: "#FAFAD2", fontFamily:"'Anton', sans-serif", fontSize:"50px"}}>Organizing for Change</Link>
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
+      <Navbar.Toggle aria-controls="basic-navbar-nav" style={{background: "#FAFAD2"}} />
+      <Navbar.Collapse id="basic-navbar-nav" style={{color: "#FAFAD2"}}>
         <Nav className="mr-auto">
           {renderNavLink('/history', 'History of Inequality')}
           {props.isAuthenticated ?
