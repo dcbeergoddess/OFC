@@ -2,7 +2,7 @@ import axios from "axios"
 
 const
   URL = process.env.NODE_ENV === 'production' ?
-    'http://todo-public-server-url' :
+    '' :
     'http://localhost:3001'
 
 export default {

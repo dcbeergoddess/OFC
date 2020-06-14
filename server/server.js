@@ -29,8 +29,10 @@ const returnError = ({message}, res) => {
   res.json({status: "error", message: message})
 }
 
+// Aj6UzX4h4#auFuW
+// mongodb://ofc:Aj6UzX4h4#auFuW@ds131151.mlab.com:31151/heroku_9lf6wtdh
 mongoose.connect(
-  process.env.MONGODB_URI || '<to-do: public-uri>',
+  process.env.MONGODB_URI || 'mongodb://ofc:Aj6UzX4h4#auFuW@ds131151.mlab.com:31151/heroku_9lf6wtdh',
   (error) => {
     if (error) throw error
     console.log('Successfully connected to MongoDB')
