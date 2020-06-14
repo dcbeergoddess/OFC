@@ -10,7 +10,7 @@ class EventCard extends React.Component {
     render() {
         return (
 
-            <Flex container width="100%" flexDirection="column" justifyContent="space-around">
+            <Flex container width="100%" flexDirection="column" justifyContent="space-around" alignItems="center">
                 <div className="card" style={{background: "#202020", color: "#FAFAD2", padding: "4rem", marginLeft: "16rem", marginRight:"16rem" }}>
                     <h1 className="name">{this.props.title}</h1>
                     <img src={this.props.image}
