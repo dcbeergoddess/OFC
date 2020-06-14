@@ -108,9 +108,7 @@ class AddEventForm extends Component {
           type="date"
           placeholder="Event Date"
         />
-        <label>Date</label>
         <div style={{justifyContent: "between"}}>
-        <label>Time</label>
         <input
           value={this.state.time}
           name="time"
@@ -121,7 +119,7 @@ class AddEventForm extends Component {
         />
 
         </div>
-                  <input
+          <input
           value={this.state.location}
           name="location"
           onChange={this.handleInputChange}
