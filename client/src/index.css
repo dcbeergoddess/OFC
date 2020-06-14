@@ -21,3 +21,8 @@ label {
     0px 8px 13px rgba(0,0,0,5),
     0px 18px 23px rgba(0,0,0,0.7);
 }
+
+
+.navbar-toggler-icon {
+  color: #FAFAD2;
+}
