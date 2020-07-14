@@ -3,7 +3,7 @@ import {Link, Redirect } from "react-router-dom";
 import "./EventCard.css";
 import "./AddEventForm.css";
 
-import API from '../utils/API'
+import API from '../../utils/API'
 import moment from 'moment'
 
 import DatePicker from 'react-datepicker'
