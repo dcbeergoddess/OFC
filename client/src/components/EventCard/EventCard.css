@@ -1,24 +1,14 @@
-.name {
-    font-size: 1.5em;
-    text-align: center;
-    font-family: 'Anton', sans-serif;
-  }
-  
-  .EventCard {
-    justify-content: space-around;
-    overflow: auto;
-    display: flex; 
-    flex-wrap: wrap;
-    flex-flow: row wrap;
-  }
+li {
+  background-color: darkgray;
+}
 
-  .card {
+.card {
+    background: #202020;
     width: 50%;
     min-width: 240px;
     margin: 1.5%;
     padding: 3%;
     border: 1px solid rgba(160,160,160,0.2);
-    background-color: darkgray;
     border-radius: 0 0 2px 2px;
     text-align: left;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
@@ -37,18 +27,4 @@
     max-height: 250px;
   }
 
-  h1, p, h3 {
-    color: #FAFAD2;
-    text-align: center;
-    font-family: 'Anton', sans-serif;
-    text-shadow: 0px 4px 3px rgba(0,0,0,7), 
-                 0px 8px 13px rgba(0,0,0,5),
-                 0px 18px 23px rgba(0,0,0,0.7);
-  }
-
-
-
-  
  
- 
-  

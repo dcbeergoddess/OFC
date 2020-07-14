@@ -1,6 +1,5 @@
 import React from "react";
 // import { Link } from "react-router-dom";
-import { Flex } from "../Flex";
 import "./EventCard.css";
 import "../../index.css";
 import Moment from 'react-moment'
@@ -11,22 +10,40 @@ class EventCard extends React.Component {
     render() {
         return (
             <>
+            {/* <style type="text/css">
+                {`
 
-                <Card style={{ width: '18rem', background: "#202020", color: "#FAFAD2" }}>
-                    <Card.Body>
-                        <Card.Title>{this.props.title}</Card.Title>
-                    </Card.Body>
+                .li {
+                    background: "#202020", color: "#FAFAD2"
+                }
+
+                `}
+            </style> */}
+
+            <Card style={{ width: '30rem', background:"#202020", color: "#FAFAD2"}}>
+                <Card.Body>
+                    <Card.Title header="Heading 3">{this.props.title}</Card.Title>
+                </Card.Body>
                     <Card.Img variant="top" src={this.props.image} alt={this.props.title} />
-                    <ListGroup style={{ background: "#202020", color: "#FAFAD2" }} className="list-group-flush">
-                        <ListGroupItem style={{ background: "#202020", color: "#FAFAD2" }}><strong>Event Date: </strong>
-                            <Moment format="MM/DD/YYYY">{this.props.date}</Moment></ListGroupItem>
-                        <ListGroupItem><strong>Start Time: </strong>
-                            <Moment format="h:mma">{this.props.date}</Moment></ListGroupItem>
-                        <ListGroupItem><strong>Meetup Location:</strong> {this.props.location}</ListGroupItem>
-                        <ListGroupItem><strong>Event Description: </strong>{this.props.description}</ListGroupItem>
+                <ListGroup>
+                    <ListGroupItem header="Heading 3" style={{ background: "#202020", color: "#FAFAD2" }} >
+                        <strong>Event Date: </strong>
+                        <Moment format="MM/DD/YYYY">{this.props.date}</Moment>
+                    </ListGroupItem>
+                    <ListGroupItem style={{ background: "#202020", color: "#FAFAD2" }} >
+                        <strong>Start Time: </strong>
+                        <Moment format="h:mma">{this.props.date}</Moment>
+                    </ListGroupItem>
+                    <ListGroupItem style={{background: "#202020", color: "#FAFAD2", border:"none" }}>
+                        <strong>Meetup Location: </strong> 
+                        {this.props.location}</ListGroupItem>
+                    <ListGroupItem style={{ background: "#202020", color: "#FAFAD2" }}>
+                        <strong>Event Description: </strong>
+                        {this.props.description}
+                    </ListGroupItem>
                     </ListGroup>
 
-                </Card>
+            </Card>
                 
                 {/*  OLD CARD
             <Flex container width="100%" flexDirection="column" justifyContent="space-around" alignItems="center">
