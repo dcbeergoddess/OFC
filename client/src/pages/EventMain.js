@@ -52,6 +52,7 @@ class EventMain extends React.Component {
           }
         </div>
       </div>
+      {/* Added flex here instead */}
       <Flex container width="100%" flexDirection="row" justifyContent="space-around" alignItems="center">
         {this.state.events.map(event => (
           <div className= "EventCard" key={event._id}>
