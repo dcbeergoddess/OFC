@@ -10,7 +10,7 @@ export const Flex = props => (
       flexGrow: props.flexGrow || 0,
       flexBasis: props.flexBasis || "auto",
       flexShrink: props.flexShrink || 1,
-      flexWrap: props.flexWrap || "nowrap",
+      flexWrap: props.flexWrap || "wrap",
       flex: props.flex || "0 1 auto",
       alignItems: props.alignItems || "stretch",
       margin: props.margin || "0",
