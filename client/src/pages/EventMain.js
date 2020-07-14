@@ -52,6 +52,7 @@ class EventMain extends React.Component {
           }
         </div>
       </div>
+      <Flex container width="100%" flexDirection="row" justifyContent="space-around" alignItems="center">
         {this.state.events.map(event => (
           <div className= "EventCard" key={event._id}>
             <EventCard
@@ -68,6 +69,7 @@ class EventMain extends React.Component {
         ))}
 
       <Route exact path={`${this.props.match.url}/EventMain`} component={EventMain} />
+      </Flex>  
     </>
   );}
 }
