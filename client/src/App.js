@@ -13,11 +13,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import $ from 'jquery';
 import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import { Nav, Navbar, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
-import "./App.css"
-import Footer from "./components/Footer";
-import "./components/Footer.css"
-import Navbar2 from './components/NavBar'
+import "./App.css";
+import Footer from "./components/Footer/Footer";
+import Navbar2 from './components/NavBar/NavBar'
 
 
 

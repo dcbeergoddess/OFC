@@ -1,6 +1,6 @@
 import React from "react";
 import {Link, Route} from "react-router-dom";
-import AddCommentForm from "../components/AddCommentForm";
+import AddCommentForm from "../components/AddCommentForm/AddCommentForm";
 
 
 function AddComment(props){

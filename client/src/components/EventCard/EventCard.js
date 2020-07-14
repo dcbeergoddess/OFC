@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {Flex} from "../components/Flex";
+import {Flex} from "../Flex";
 import "./EventCard.css";
-import "../index.css";
+import "../../index.css";
 import Moment from 'react-moment'
 
 

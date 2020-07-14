@@ -1,7 +1,7 @@
 import React from "react";
 import {Link, Route} from "react-router-dom";
 import {Flex} from "../components/Flex";
-import TimelineCard from "../components/TimelineCard";
+import TimelineCard from "../components/TimelineCard/TimelineCard";
 import timelineJson from "../timeline.json";
 import Stats from "./Stats";
 

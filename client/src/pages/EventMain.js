@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, Route, Redirect } from "react-router-dom";
 import {Flex} from "../components/Flex";
-import EventCard from "../components/EventCard"
+import EventCard from "../components/EventCard/EventCard"
 import eventsjson from "../events.json";
-import "../components/EventCard.css"
+import "../components/EventCard/EventCard.css"
 
 import API from '../utils/API'
 
