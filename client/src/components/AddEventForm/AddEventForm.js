@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {Link, Redirect } from "react-router-dom";
-import "./EventCard.css";
+import "../EventCard/EventCard.css";
 import "./AddEventForm.css";
 
 import API from '../../utils/API'
@@ -11,7 +11,7 @@ import "react-datepicker/dist/react-datepicker.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import TimePicker from 'rc-time-picker'
 import 'rc-time-picker/assets/index.css'
-import defaultImage from '../assets/images/BLM_StreetSign.png'
+import defaultImage from '../../assets/images/BLM_StreetSign.png'
 
 
 class AddEventForm extends Component {

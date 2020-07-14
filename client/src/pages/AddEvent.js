@@ -1,6 +1,6 @@
 import React from "react";
 import {Link, Route} from "react-router-dom";
-import AddEventForm from "../components/AddEventForm"
+import AddEventForm from "../components/AddEventForm/AddEventForm"
 
 
 function AddEvent(props){

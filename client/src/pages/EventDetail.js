@@ -1,7 +1,7 @@
 import React from "react";
 import {Link, Route} from "react-router-dom";
 import {Flex} from "../components/Flex";
-import EventCard from "../components/EventCard"
+import EventCard from "../components/EventCard/EventCard"
 import eventsjson from "../events.json"
 
 function EventDetail(props){
