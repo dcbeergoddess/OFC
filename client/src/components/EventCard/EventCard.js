@@ -4,6 +4,7 @@ import "./EventCard.css";
 import "../../index.css";
 import Moment from 'react-moment'
 import { Card, Button, ListGroup, ListGroupItem } from 'react-bootstrap';
+import {Link} from "react-router-dom";
 
 
 class EventCard extends React.Component {
@@ -42,6 +43,9 @@ class EventCard extends React.Component {
                         {this.props.description}
                     </ListGroupItem>
                     </ListGroup>
+                    <Card.Body> 
+                        <Link to={'/EventDetail/id'}>See Event Details</Link>
+                    </Card.Body>    
 
             </Card>
                 
