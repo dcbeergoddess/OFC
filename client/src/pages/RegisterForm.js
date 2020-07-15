@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 
 import ErrorMessageBox from '../components/ErrorMessageBox'
 import { Redirect } from 'react-router-dom'
-
 import API from '../utils/API'
 
 
@@ -66,6 +65,16 @@ function RegisterForm(props) {
               autoComplete="off"
               className="form-control col-12 col-md-8"
               placeholder="Enter a Username"
+            />
+          </div>
+          <div className="form-group row">
+            <label htmlFor="email" className="col-12 col-md-4 col-form-label">Username:</label>
+            <input
+              name="email"
+              type="text"
+              autoComplete="off"
+              className="form-control col-12 col-md-8"
+              placeholder="Enter your email"
             />
           </div>
           <div className="form-group row">
