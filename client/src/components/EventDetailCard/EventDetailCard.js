@@ -1,6 +1,6 @@
 import React from "react";
 import { Link} from "react-router-dom";
-import "./EventCard.css";
+import "./EventDetail.css";
 
 
 class EventDetails extends React.Component {
