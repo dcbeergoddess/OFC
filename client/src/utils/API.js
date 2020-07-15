@@ -31,8 +31,18 @@ export default {
     return axios.post(endpoint, event)
   },
 
+  deleteEvent(eventId) {
+    const endpoint = `${URL}/api/event/${eventId}`
+    return axios.delete(endpoint)
+  },
+
   addComment(comment) {
     const endpoint = `${URL}/api/event`
     return axios.post(endpoint, comment)
+  },
+
+  deleteComment(commentId) {
+    const endpoint = `${URL}/api/event/${commentId}`
+    return axios.delete(endpoint)
   }
 }

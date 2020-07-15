@@ -29,8 +29,6 @@ const returnError = ({message}, res) => {
   res.json({status: "error", message: message})
 }
 
-// Aj6UzX4h4#auFuW
-// mongodb://ofc:Aj6UzX4h4#auFuW@ds131151.mlab.com:31151/heroku_9lf6wtdh
 mongoose.connect(
   process.env.MONGODB_URI || 'mongodb://ofc:Aj6UzX4h4#auFuW@ds131151.mlab.com:31151/heroku_9lf6wtdh',
   (error) => {
@@ -128,6 +126,19 @@ app.post("/api/event", function(req, res) {
     .catch(error => returnError(error, res))
 })
 
+app.delete("/api/event/:id", function(req, res) {
+  const eventId = req.params.id
+
+  Comment.deleteMany({forEvent: new mongoose.Types.ObjectId(eventId)})
+    .then(comments => {
+      Event.deleteOne({_id: new mongoose.Types.ObjectId(eventId)})
+        .then(event => returnSuccess(event, res))
+        .catch(error => returnError(error, res))
+      console.log(comments)
+    })
+    .catch(error => returnError(error, res))
+})
+
 app.post("/api/comment", function(req, res) {
   const newComment = new Comment(req.body)
   newComment.save()
@@ -141,6 +152,20 @@ app.post("/api/comment", function(req, res) {
       .catch(error => returnError(error, res))
     })
     .catch(error => returnError(error, res))
+})
+
+app.delete("/api/comment/:id", function(req, res) {
+  const commentId = req.params.id
+
+  Comment.findOneAndDelete({_id: new mongoose.Types.ObjectId(commentId)})
+    .then(comment => {
+      Event.findOneAndUpdate(
+        { _id: new mongoose.Types.ObjectId(comment.forEvent) },
+        { $pull: { comments: commentId } })
+        .then(event => returnSuccess(comment, res))
+        .catch(error => returnError(error, res))
+    })
+    .catch(error => returnError(error,res))
 })
 
 // Send every other request to the React app
