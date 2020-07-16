@@ -3,8 +3,10 @@ const
   session = require('express-session'),
   passport = require('./config/passport'),
   path = require('path'),
-  mongoose = require('mongoose')
-
+  mongoose = require('mongoose'),
+  multer = require('./config/multer'),
+  cors = require('cors'),
+  uuidv4 = require('uuidv4')
 
 const
   User = require('./models/User'),
@@ -41,6 +43,8 @@ mongoose.connect(
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(cors());
 
 console.log(__dirname)
 
@@ -119,10 +123,47 @@ app.get("/api/event/:id", function(req, res) {
     .catch(error => returnError(error, res))
 })
 
-app.post("/api/event", function(req, res) {
-  const newEvent = new Event(req.body)
+const DIR = './public/';
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, DIR);
+    },
+    filename: (req, file, cb) => {
+        const fileName = file.originalname.toLowerCase().split(' ').join('-');
+        cb(null, uuidv4() + '-' + fileName)
+    }
+});
+
+const upload = multer({
+    storage: storage,
+    fileFilter: (req, file, cb) => {
+        if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
+            cb(null, true);
+        } else {
+            cb(null, false);
+            return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
+        }
+    }
+});
+
+
+app.post("/api/event", upload.single('imageUrl'), function(req, res, next) {
+  console.log(req)
+  const url = req.protocol + '://' + req.get('host')
+  const newEvent = new Event ({
+    _id: new mongoose.Types.ObjectId(),
+    title: req.body.title,
+    description: req.body.title,
+    imageUrl: url + '/public/' + req.file,
+    when: req.body.when,
+    location: req.body.location,
+    postedDate: req.body.postedDate,
+    postedBy: req.body.postedBy,
+    comments: req.body.comments
+  });
   newEvent.save()
-    .then(event => returnSuccess(event, res))
+    .then(event => returnSuccess(event, res)) 
     .catch(error => returnError(error, res))
 })
 

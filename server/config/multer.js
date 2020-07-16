@@ -1,7 +1,7 @@
 let express = require('express'),
     multer = require('multer'),
     mongoose = require('mongoose'),
-    uuidv4 = require('uuid/v4'),
+    uuidv4 = require('uuidv4'),
     router = express.Router();
 
 const DIR = './public/';
@@ -28,30 +28,5 @@ const upload = multer({
     }
 });
 
-// Event model- I THINK THIS NEEDS TO GO SOMEWHER ELSE... 
-let Event = require('../models/Event');
 
-router.post('/events', upload.single('imageUrl'), (req, res, next) => {
-    const url = req.protocol + '://' + req.get('host')
-    const event = new Event({
-        _id: new mongoose.Types.ObjectId(),
-        name: req.body.name,
-        profileImg: url + '/public/' + req.file.filename
-    });
-    event.save().then(result => {
-        res.status(201).json({
-            message: "Photo Uploaded!",
-            userCreated: {
-                _id: result._id,
-                profileImg: result.profileImg
-            }
-        })
-    }).catch(err => {
-        console.log(err),
-            res.status(500).json({
-                error: err
-            });
-    })
-})
-
-module.exports = router;
+module.exports = multer;
