@@ -98,7 +98,7 @@ class AddEventForm extends Component {
           value={this.state.imageUrl}
           name="imageUrl"
           onChange={this.handleInputChange}
-          type="text"
+          type="file"
           placeholder="Image URL"
         />
         <input
