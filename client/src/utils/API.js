@@ -37,12 +37,12 @@ export default {
   },
 
   addComment(comment) {
-    const endpoint = `${URL}/api/event`
+    const endpoint = `${URL}/api/comment`
     return axios.post(endpoint, comment)
   },
 
   deleteComment(commentId) {
-    const endpoint = `${URL}/api/event/${commentId}`
+    const endpoint = `${URL}/api/comment/${commentId}`
     return axios.delete(endpoint)
   }
 }
