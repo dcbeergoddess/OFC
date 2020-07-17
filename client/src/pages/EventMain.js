@@ -65,6 +65,7 @@ class EventMain extends React.Component {
               description={event.description}
               isAuthenticated={this.props.isAuthenticated}
               user={this.props.user}
+              id={event._id}
             />
           </div>
         ))}

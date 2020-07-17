@@ -8,7 +8,7 @@ function AddComment(props){
     <div>
 
 
-      <Link to="/EventDetail" role="button" className="btn btn-link">
+      <Link to="/EventMain" role="button" className="btn btn-link">
         Go Back
       </Link>
 

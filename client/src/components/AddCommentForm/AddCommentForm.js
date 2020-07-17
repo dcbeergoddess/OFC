@@ -7,7 +7,7 @@ class AddCommentForm extends Component {
   // Setting the component's initial state
   state = {
     comment: "",
-    user: "{.this.state.username}"
+    user: ""
   };
 
   handleInputChange = event => {
@@ -24,7 +24,7 @@ class AddCommentForm extends Component {
 
     this.setState({
         comment: "",
-        user: "{.this.state.username}"
+        user: "",
     });
   };
 
@@ -46,6 +46,7 @@ class AddCommentForm extends Component {
             name="text"
             onChange={this.handleInputChange}
             type="text"
+            placeholder="Username"
           />
          
             <Link onClick={this.handleFormSubmit} to="/EventDetail" role="button" className="btn btn-lg btn-dark btn-block">Submit</Link>
