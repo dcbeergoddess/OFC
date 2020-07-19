@@ -7,13 +7,22 @@ function AddComment(props){
   return (
     <div>
 
-
       <Link to="/EventMain" role="button" className="btn btn-link">
         Go Back
       </Link>
 
-      <Route exact path={`${props.match.url}/AddComment`} component={AddComment} />
-      <AddCommentForm/>
+      <Route exact path={`${props.match.url}/AddComment`} render={props =>
+        <AddComment {...props}
+          user={props.user}
+          event={props.event}
+          // isAuthenticated={props.isAuthenticated} 
+          />
+      } />
+        <AddCommentForm
+          user={props.user}
+          event={props.event}
+          // isAuthenticated={props.isAuthenticated}
+          />
     </div>
   );
 }
