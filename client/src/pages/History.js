@@ -8,9 +8,9 @@ import Stats from "./Stats";
 function History(props){
   return (
     <>
-      <h1 style={{paddingTop:"20px"}}>History of Systemic Inequality</h1>
 
-      <Flex container display="flex" wdith="90%" margin="50px auto" flexDirection="row" justifyContent="space-between">
+      <h1 style={{paddingTop:"20px"}}>History of Systemic Inequality</h1>
+      <Flex container width="100%" margin="auto" justifyContent="space-around">
         {timelineJson.map(timeline => (
           <TimelineCard
           key={timeline.id}
@@ -22,14 +22,14 @@ function History(props){
         ))}
       </Flex>
 
-      {/* <Link to={`${props.match.url}/stats`} role="button" className="btn btn-link">
-        SHOW Stats
+      <Link to={`${props.match.url}/stats`} role="button" className="btn btn-link">
+        Show Stats
       </Link>{" "}
       <Link to="/history" role="button" className="btn btn-link">
         Hide Stats
-      </Link> */}
+      </Link>
 
-      <Route exact path={`${props.match.url}/stats`} component={Stats} />
+      <Route path={`${props.match.url}/stats`} component={Stats} />
     </>
   );
 }

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, Route, Redirect } from "react-router-dom";
 import {Flex} from "../components/Flex";
 import EventCard from "../components/EventCard/EventCard"
-import eventsjson from "../events.json";
 import "../components/EventCard/EventCard.css"
 import API from '../utils/API'
 
@@ -52,7 +51,7 @@ class EventMain extends React.Component {
         </div>
       </div>
       {/* Added flex here instead */}
-      <Flex container width="100%" flexDirection="row" justifyContent="space-around">
+      <Flex container width="100%" margin="auto" justifyContent="space-around">
         {this.state.events.map(event => (
           <div>
             <EventCard
