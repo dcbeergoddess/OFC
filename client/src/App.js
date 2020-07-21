@@ -75,7 +75,6 @@ function App() {
 
   return (
     <Router>
-      <div>
         <Navbar2 isAuthenticated={isAuthenticated} handleLogout={handleLogout}/>
 
         {/* react router is responding to what the path is */}
@@ -87,7 +86,7 @@ function App() {
             isAuthenticated={isAuthenticated}
             setEventCount={setEventCount} />
         } />
-        <Route path="/EventDetail" component={EventDetail} />
+        <Route path="/event/:id"  component={EventDetail} />
         <Route path="/AddEvent" render={props =>
           <AddEvent {...props}
             user={user}
@@ -109,7 +108,6 @@ function App() {
             isAuthenticated={isAuthenticated} />
         } />
         <Footer/>
-      </div>
     </Router>
   );
 }

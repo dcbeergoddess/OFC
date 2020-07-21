@@ -1,12 +1,28 @@
-import React from "react";
-import {Link, Route} from "react-router-dom";
-import {Flex} from "../components/Flex";
+import React, {useState, useEffect} from "react";
+import {Link, Route, useParams} from "react-router-dom";
 import EventDetails from '../components/EventDetailCard/EventDetailCard'
-import eventsjson from "../events.json"
+import API from "../utils/API"
 
 function EventDetail(props){
+
+ /* 
+
+    const {event} = useParams()
+  const [eventData, setEventData] = useState({
+  })
+  useEffect(() => {
+    getEventDetail = (event) => {
+      API.getEvent(this.props.id)
+      .then(results => {
+          console.log(results.data)
+      }) 
+  }
+  }, [])
+  */
+
+  
   return (
-    <div>
+    <>
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -17,15 +33,23 @@ function EventDetail(props){
         <Link to="/EventMain" role="button" className="btn btn-link">
         Go Back
       </Link>
-          <Link to="/AddComment" role="button" className="btn btn-lg btn-dark btn-block">
-            Add Comment
-      </Link>
         </div>
       </div>
-      <EventDetails/>
+      <EventDetails
+        // key={this.event._id}
+        // title={this.event.title}
+        // image={this.event.imageUrl}
+        // date={this.event.when}
+        // time={this.event.when}
+        // location={this.event.location}
+        // description={this.event.description}
+        // isAuthenticated={this.props.isAuthenticated}
+        // user={this.props.user}
+        // id={this.event._id}
+      />
 
-      <Route exact path={`${props.match.url}/EventDetail`} component={EventDetail} />
-    </div>
+      <Route exact path={`${props.match.url}/api/event/${props._id}`} component={EventDetail} />
+    </>
   );
 }
 
