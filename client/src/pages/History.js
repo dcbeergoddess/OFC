@@ -25,10 +25,10 @@ function History(props){
         ))}
       </Flex>
 
-      <Link to={`${props.match.url}/stats`} role="button" className="btn btn-link">
+      <Link to={`${props.match.url}/stats`} role="button" className="btn btn-link" style={{color: "ivory", fontSize: '2rem'}}>
         Show Stats
       </Link>{" "}
-      <Link to="/history" role="button" className="btn btn-link">
+      <Link to="/history" role="button" className="btn btn-link" style={{color: "ivory", fontSize: '2rem'}}>
         Hide Stats
       </Link>
 

@@ -5,7 +5,7 @@ import History from "./pages/History";
 import EventMain from "./pages/EventMain";
 import EventDetail from "./pages/EventDetail";
 import AddEvent from "./pages/AddEvent";
-import AddComment from "./pages/AddComment";
+import AddCommentForm from "./components/AddCommentForm/AddCommentForm";
 import LoginForm from './pages/LoginForm/LoginForm'
 import RegisterForm from './pages/RegisterForm/RegisterForm'
 import API from './utils/API'
@@ -28,6 +28,7 @@ function App() {
   const [eventCount, setEventCount] = useState(0)
 
   const showMessage = (message, timeout = 3000) => {
+    console.log(message)
     setErrorMessage(message)
 
     if (timeout !== 0) {
@@ -98,10 +99,13 @@ function App() {
         <Route path="/AddEvent" render={props =>
           <AddEvent {...props}
             user={user}
+            showMessage={showMessage}
+            errorMessage={errorMessage}
             isAuthenticated={isAuthenticated}
             setEventCount={setEventCount} />
         } />
-        <Route path="/AddComment" component={AddComment} />
+        <Route path="/AddComment" component={AddCommentForm} />
+
         <Route path="/sign-up" render={props =>
           <RegisterForm {...props}
             errorMessage={errorMessage}

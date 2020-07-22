@@ -4,6 +4,7 @@ import { Flex } from "../components/Flex";
 import EventCard from "../components/EventCard/EventCard";
 import "../components/EventCard/EventCard.css";
 import API from "../utils/API";
+import AddCommentForm from "../components/AddCommentForm/AddCommentForm"
 
 class EventMain extends React.Component {
   state = {
@@ -60,24 +61,22 @@ class EventMain extends React.Component {
           <Flex container width="100%" margin="auto" justifyContent="space-around">
             {this.state.events.map(event => (
               <div>
-                <EventCard 
-                key={event._id} 
-                title={event.title} 
-                image={event.imageUrl} 
-                date={event.when} 
-                time={event.when} 
-                location={event.location} 
-                description={event.description} 
-                flagCount={event.flagCount} 
-                isAuthenticated={this.props.isAuthenticated} 
-                user={this.props.user} 
-                postedBy={event.postedBy} 
-                deleteEvent={this.deleteEvent} 
-                id={event._id} />
+                <EventCard key={event._id} title={event.title} image={event.imageUrl} date={event.when} time={event.when} location={event.location} description={event.description} flagCount={event.flagCount} isAuthenticated={this.props.isAuthenticated} user={this.props.user} postedBy={event.postedBy} deleteEvent={this.deleteEvent} id={event._id} />
               </div>
             ))}
 
             <Route exact path={`${this.props.match.url}/EventMain`} component={EventMain} />
+            <Route
+              path={`${this.props.match.url}/AddComment/:eventId`}
+              render={props => (
+                <AddCommentForm
+                  {...props}
+                  user={this.props.user}
+                  event={this.props.event}
+                  // isAuthenticated={props.isAuthenticated}
+                />
+              )}
+            />
           </Flex>
         </div>
       </>

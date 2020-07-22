@@ -10,6 +10,7 @@ import "react-datepicker/dist/react-datepicker.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'rc-time-picker/assets/index.css'
 import defaultImage from '../../assets/images/BLM_StreetSign.png'
+import ErrorMessageBox from '../ErrorMessageBox'
 
 
 class AddEventForm extends Component {
@@ -53,12 +54,16 @@ class AddEventForm extends Component {
 
     if (!this.state.imageUrl) {
       newEvent.imageUrl = defaultImage
-    }
-
-    API.addEvent(newEvent)
-      .then(() => {
-        this.props.setEventCount(0)
-        this.setState({submitted: true})
+    } 
+    
+    API.addEvent(newEvent) 
+      .then((res) => {
+        if (res.data.status === "success") {
+          this.props.setEventCount(0)
+          this.setState({submitted: true})
+        } else {
+          this.props.showMessage(res.data.message)
+        }
       })
       .catch(console.error)
 
@@ -89,6 +94,7 @@ class AddEventForm extends Component {
           onChange={this.handleInputChange}
           type="text"
           placeholder="Event Title"
+          autoFocus={true}
         />        
         <input
           value={this.state.imageUrl}
@@ -133,6 +139,8 @@ class AddEventForm extends Component {
           <Link onClick={this.handleFormSubmit} to="/AddEvent" role="button" className="btn btn-lg btn-dark btn-block">Submit</Link>
                <Link  to={`/AddEvent`} ></Link>
       </form>
+      {this.props.errorMessage &&
+            <ErrorMessageBox message={this.props.errorMessage}/>}
     </div>
 
     </>);
