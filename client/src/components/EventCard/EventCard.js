@@ -9,7 +9,7 @@ import { Card, Button, ListGroup, ListGroupItem, Accordion } from "react-bootstr
 import API from "../../utils/API";
 
 class EventCard extends React.Component {
-    state = {flagCount: this.props.flagCount}
+  state = { flagCount: this.props.flagCount };
 
   getEventDetail = () => {
     API.getEvent(this.props.id).then(results => {
@@ -21,18 +21,18 @@ class EventCard extends React.Component {
     this.getEventDetail();
   }
 
-  handleFlagClick = (e) => {
-    e.preventDefault()
+  handleFlagClick = e => {
+    e.preventDefault();
     API.incrementEventFlag(this.props.id).then(res => {
-      console.log(res.data)
-      this.setState({flagCount: res.data.data})
-    })
-  }
+      console.log(res.data);
+      this.setState({ flagCount: res.data.data });
+    });
+  };
 
-  handleDelete = (event) => {
-    event.preventDefault()
-    this.props.deleteEvent(this.props.id)
-  }
+  handleDelete = event => {
+    event.preventDefault();
+    this.props.deleteEvent(this.props.id);
+  };
 
   render() {
     return (
@@ -71,9 +71,11 @@ class EventCard extends React.Component {
           <Link to={`/event/${this.props.id}`} role="button" className="btn btn-dark btn-block" style={{ margin: "10px", fontSize: "16px" }}>
             See Event Details
           </Link>
-          <Button className="btn btn-dark btnEvent" style={{ margin: "10px", fontSize: "16px" }} onClick={event => this.handleDelete(event)}>
-            Delete Event
-          </Button>
+          {this.props.postedBy._id === this.props.user._id && 
+            <Button className="btn btn-dark btnEvent" style={{ margin: "10px", fontSize: "16px" }} onClick={event => this.handleDelete(event)}>
+              Delete Event
+            </Button>
+          }
           <Link to="/AddComment" role="button" className="btn btn-sm btn-dark btnEvent" style={{ margin: "10px", fontSize: "16px" }}>
             Add Comment
           </Link>
