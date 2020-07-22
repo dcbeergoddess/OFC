@@ -182,6 +182,15 @@ app.post("/api/event", upload.single("imageUrl"), function (req, res, next) {
 */
 app.post("/api/event", function(req, res) {
   const newEvent = new Event(req.body)
+  if  (!newEvent.title) {
+    returnError ('Please Enter a Title for Your Event', res) 
+  } if (!newEvent.when) {
+    returnError ("Please select a date for your Event", res)
+  } if (!newEvent.description) {
+    returnError ("Please enter a description for your Event", res)
+  } if (!newEvent.location) {
+    returnError ("Please enter a location for your Event", res) 
+  }
   newEvent.save()
     .then(event => returnSuccess(event, res))
     .catch(error => returnError(error, res))

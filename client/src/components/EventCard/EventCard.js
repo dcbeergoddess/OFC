@@ -7,6 +7,7 @@ import CommentCard from "../CommentCard/CommentCard";
 import Moment from "react-moment";
 import { Card, Button, ListGroup, ListGroupItem, Accordion } from "react-bootstrap";
 import API from "../../utils/API";
+import AddCommentForm from "../AddCommentForm/AddCommentForm";
 
 class EventCard extends React.Component {
   state = { flagCount: this.props.flagCount };
@@ -60,23 +61,32 @@ class EventCard extends React.Component {
           </ListGroupItem>
         </ListGroup>
         <Card.Body className="btnEvent">
-          <Button className="btn" style={{ margin: "10px", fontSize: "16px", backgroundColor:"#FAFAD2", color:"#202020" }} onClick={this.handleFlagClick} >
-            <span role="img" aria-label="flag"> 🚩</span> Report Event: {this.state.flagCount}
+          <Button className="btn" style={{ margin: "10px", fontSize: "16px", backgroundColor: "#FAFAD2", color: "#202020" }} onClick={this.handleFlagClick}>
+            <span role="img" aria-label="flag">
+              {" "}
+              🚩
+            </span>{" "}
+            Report Event: {this.state.flagCount}
           </Button>
           <br></br>
-          <Link to={`/event/${this.props.id}`} role="button" className="btn btn-dark btn-block" style={{ margin: "10px", fontSize: "16px" }}>
+          {/* <Link to={`/event/${this.props.id}`} role="button" className="btn btn-dark btn-block" style={{ margin: "10px", fontSize: "16px" }}>
             See Event Details
-          </Link>
-          {this.props.postedBy._id === this.props.user._id && 
+          </Link> */}
+          {this.props.postedBy._id === this.props.user._id && (
             <Button className="btn btn-dark btnEvent" style={{ margin: "10px", fontSize: "16px" }} onClick={event => this.handleDelete(event)}>
               Delete Event
             </Button>
-          }
-          <Link to="/AddComment" role="button" className="btn btn-sm btn-dark btnEvent" style={{ margin: "10px", fontSize: "16px" }}>
+          )}
+          {/* <AddCommentForm
+            user={this.props.user}
+            event={this.eventId}
+            // isAuthenticated={props.isAuthenticated}
+          />
+          <Link to={`/AddComment/${this.props.id}`} role="button" className="btn btn-sm btn-dark btnEvent" style={{ margin: "10px", fontSize: "16px" }}>
             Add Comment
-          </Link>
+          </Link> */}
         </Card.Body>
-        <Accordion>
+        {/* <Accordion>
           <Card style={{ width: "19rem", background: "#202020", color: "#FAFAD2", position: "center" }}>
             <Card.Body>
               <Accordion.Toggle as={Button} className="style-link" variant="link" eventKey="0" style={{ fontSize: "16px", border: "none", textDecoration: "none" }}>
@@ -87,7 +97,7 @@ class EventCard extends React.Component {
               <CommentCard user="bob" comment="test" />
             </Accordion.Collapse>
           </Card>
-        </Accordion>
+        </Accordion> */}
       </Card>
     );
   }

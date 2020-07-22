@@ -23,6 +23,7 @@ function LoginForm(props) {
                 autoComplete="off"
                 className="form-control col-12 col-md-8"
                 placeholder="Enter your username"
+                autoFocus={true}
               />
             </div>
             <div className="form-group row">
