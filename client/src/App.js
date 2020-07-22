@@ -80,6 +80,7 @@ function App() {
 
   }
 
+
   return (
     <Router>
         <Navbar2 isAuthenticated={isAuthenticated} handleLogout={handleLogout}/>

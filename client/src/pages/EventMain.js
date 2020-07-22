@@ -27,6 +27,17 @@ class EventMain extends React.Component {
     this.getEvents()
   }
 
+  deleteEvent = (eventId) => {
+    API.deleteEvent(eventId).then(res => {
+      console.log(res);
+      const events = this.state.events.filter(
+        event => event._id != eventId
+        
+      ) 
+      this.setState({events: events})
+    });
+  };
+
 
   render = () => {
   return (
@@ -62,8 +73,10 @@ class EventMain extends React.Component {
               time={event.when}
               location={event.location}
               description={event.description}
+              flagCount={event.flagCount}
               isAuthenticated={this.props.isAuthenticated}
               user={this.props.user}
+              deleteEvent={this.deleteEvent}
               id={event._id}
             />
           </div>

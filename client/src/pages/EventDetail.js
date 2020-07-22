@@ -5,29 +5,18 @@ import API from "../utils/API"
 
 function EventDetail(props){
 
-
-  // API.getEvent()
-  //     .then(results => {
-  //       const events = results.data.data
-  //       this.setState({events: events})
-  //     })
-  //     .catch(console.error)
-
+  // const {event} = useParams()
+  // const [eventData, setEventData] = useState({
   
- /* 
-
-    const {event} = useParams()
-  const [eventData, setEventData] = useState({
-  })
   useEffect(() => {
-    getEventDetail = (event) => {
-      API.getEvent(this.props.id)
-      .then(results => {
-          console.log(results.data)
-      }) 
-  }
+    API.getEvent(props.id)
+    .then(results => {
+      const events = results.data.data
+      this.setState({events: events})
+    })
+    .catch(console.error)
   }, [])
-  */
+
 
   
   return (
@@ -44,13 +33,13 @@ function EventDetail(props){
       </Link>
         </div>
       </div>
-      {/* <div key={props._id} className="card">
-                <h2 className="name">{props.title}</h2>
-                <img src={props.image}
-                    alt={props.title} />
-                    <h3 >{props.date}</h3>
+        <div key={props._id} className="card">
+                <h2 className="name">Test</h2>
+                <img src="test"
+                    alt="test" />
+                    {/* <h3 >{props.date}</h3>
                     <h3 >{props.time}</h3>
-                    <h3 >{props.location}</h3>
+                    <h3 >{props.location}</h3> */}
                     <button className="btn btn-dark">Delete Event</button>
                     <Link to="/AddComment" role="button" className="btn btn-lg btn-dark btn-block">
                         Add Comment
@@ -58,7 +47,7 @@ function EventDetail(props){
 
                  <Link  to={`/EventMain`} >
                 </Link>
-                </div> */}
+                </div>
       <EventDetails
         // key={events._id}
         // title={events.title}

@@ -9,17 +9,11 @@ import { Card, Button, ListGroup, ListGroupItem, Accordion } from "react-bootstr
 import API from "../../utils/API";
 
 class EventCard extends React.Component {
+    state = {flagCount: this.props.flagCount}
+
   getEventDetail = () => {
     API.getEvent(this.props.id).then(results => {
       console.log(results);
-    });
-  };
-
-  handleDelete = event => {
-    event.preventDefault();
-    API.deleteEvent(this.props.id).then(res => {
-      console.log(res);
-      // window.location.reload(false);
     });
   };
 
@@ -27,11 +21,24 @@ class EventCard extends React.Component {
     this.getEventDetail();
   }
 
+  handleFlagClick = (e) => {
+    e.preventDefault()
+    API.incrementEventFlag(this.props.id).then(res => {
+      console.log(res.data)
+      this.setState({flagCount: res.data.data})
+    })
+  }
+
+  handleDelete = (event) => {
+    event.preventDefault()
+    this.props.deleteEvent(this.props.id)
+  }
+
   render() {
     return (
       <Card style={{ width: "25rem", background: "#202020", color: "#FAFAD2" }}>
         <Card.Body>
-          <Card.Title style={{fontWeight:"bolder", fontFamily: "'Anton', sans-serif", fontSize: "1.5rem", color:"#CD4545"}}>{this.props.title}</Card.Title>
+          <Card.Title style={{ fontWeight: "bolder", fontFamily: "'Anton', sans-serif", fontSize: "1.5rem", color: "#CD4545" }}>{this.props.title}</Card.Title>
         </Card.Body>
         <Card.Img variant="top" src={this.props.image} alt={this.props.title} />
         <ListGroup>
@@ -53,7 +60,13 @@ class EventCard extends React.Component {
           </ListGroupItem>
         </ListGroup>
         <Card.Body classname="btnEvent">
-          <FlagEvent />
+          <Button type="button" onClick={this.handleFlagClick}>
+            <span role="img" aria-label="flag">
+              {" "}
+              🚩
+            </span>{" "}
+            Report Event: {this.state.flagCount}
+          </Button>
           <br></br>
           <Link to={`/event/${this.props.id}`} role="button" className="btn btn-dark btn-block" style={{ margin: "10px", fontSize: "16px" }}>
             See Event Details

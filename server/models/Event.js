@@ -31,6 +31,11 @@ const EventSchema = new Schema({
     required: true
   },
 
+  flagCount: {
+    type: Number,
+    default: 0
+  },
+
   postedDate: {
     type: Date,
     default: Date.now
