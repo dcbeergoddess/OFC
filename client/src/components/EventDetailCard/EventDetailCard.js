@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Link} from "react-router-dom";
+import React  from "react";
+import {Link} from "react-router-dom";
 import "./EventDetail.css";
-import API from '../../utils/API';
+// import API from '../../utils/API';
 
 
 function EventDetails(props) { 

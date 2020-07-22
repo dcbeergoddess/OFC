@@ -1,5 +1,5 @@
 import React from 'react'
-import ErrorMessageBox from '../components/ErrorMessageBox'
+import ErrorMessageBox from '../../components/ErrorMessageBox'
 import { Redirect } from 'react-router-dom'
 import "./LoginForm.css"
 

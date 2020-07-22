@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-
-import ErrorMessageBox from '../components/ErrorMessageBox'
+import ErrorMessageBox from '../../components/ErrorMessageBox'
 import { Redirect } from 'react-router-dom'
-import API from '../utils/API'
+import API from '../../utils/API'
+
 
 
 function RegisterForm(props) {
@@ -64,6 +64,7 @@ function RegisterForm(props) {
 
 
   return (<>
+  
     {isRegistered &&
       <Redirect to="/login" />
     }

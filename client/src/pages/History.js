@@ -5,10 +5,13 @@ import TimelineCard from "../components/TimelineCard/TimelineCard";
 import timelineJson from "../timeline.json";
 import Stats from "./Stats";
 
+
 function History(props){
   return (
+
     <>
 
+    <div className='container' style={{width:'100vw', minHeight:'100vh', paddingBottom: '50px'}}>
       <h1 style={{paddingTop:"20px"}}>History of Systemic Inequality</h1>
       <Flex container width="100%" margin="auto" justifyContent="space-around">
         {timelineJson.map(timeline => (
@@ -30,6 +33,8 @@ function History(props){
       </Link>
 
       <Route path={`${props.match.url}/stats`} component={Stats} />
+    </div>
+
     </>
   );
 }

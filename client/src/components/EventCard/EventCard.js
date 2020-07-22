@@ -1,9 +1,9 @@
 import React from "react";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./EventCard.css";
 import "../../index.css";
 import CommentCard from "../CommentCard/CommentCard";
-import FlagEvent from "../FlagEvent/FlagEvent";
+// import FlagEvent from "../FlagEvent/FlagEvent";
 import Moment from "react-moment";
 import { Card, Button, ListGroup, ListGroupItem, Accordion } from "react-bootstrap";
 import API from "../../utils/API";
@@ -36,7 +36,7 @@ class EventCard extends React.Component {
 
   render() {
     return (
-      <Card style={{ width: "25rem", background: "#202020", color: "#FAFAD2" }}>
+      <Card style={{ width: "20rem", background: "#202020", color: "#FAFAD2" }}>
         <Card.Body>
           <Card.Title style={{ fontWeight: "bolder", fontFamily: "'Anton', sans-serif", fontSize: "1.5rem", color: "#CD4545" }}>{this.props.title}</Card.Title>
         </Card.Body>
@@ -59,13 +59,9 @@ class EventCard extends React.Component {
             {this.props.description}
           </ListGroupItem>
         </ListGroup>
-        <Card.Body classname="btnEvent">
-          <Button type="button" onClick={this.handleFlagClick}>
-            <span role="img" aria-label="flag">
-              {" "}
-              🚩
-            </span>{" "}
-            Report Event: {this.state.flagCount}
+        <Card.Body className="btnEvent">
+          <Button className="btn" style={{ margin: "10px", fontSize: "16px", backgroundColor:"#FAFAD2", color:"#202020" }} onClick={this.handleFlagClick} >
+            <span role="img" aria-label="flag"> 🚩</span> Report Event: {this.state.flagCount}
           </Button>
           <br></br>
           <Link to={`/event/${this.props.id}`} role="button" className="btn btn-dark btn-block" style={{ margin: "10px", fontSize: "16px" }}>
@@ -81,7 +77,7 @@ class EventCard extends React.Component {
           </Link>
         </Card.Body>
         <Accordion>
-          <Card style={{ width: "24rem", background: "#202020", color: "#FAFAD2", position: "center" }}>
+          <Card style={{ width: "19rem", background: "#202020", color: "#FAFAD2", position: "center" }}>
             <Card.Body>
               <Accordion.Toggle as={Button} className="style-link" variant="link" eventKey="0" style={{ fontSize: "16px", border: "none", textDecoration: "none" }}>
                 Show/Hide Comments
