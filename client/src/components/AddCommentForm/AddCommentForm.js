@@ -28,8 +28,8 @@ class AddCommentForm extends Component {
     
     const newComment = {...this.state}
 
-    newComment.forEvent = this.props.event._id
-    newComment.postedBy = this.props.user._id
+    // newComment.forEvent = this.props.event._id
+    // newComment.postedBy = this.props.user._id
 
     API.addComment(newComment)
       .then(() => {

@@ -76,6 +76,7 @@ class EventMain extends React.Component {
               flagCount={event.flagCount}
               isAuthenticated={this.props.isAuthenticated}
               user={this.props.user}
+              postedBy={event.postedBy}
               deleteEvent={this.deleteEvent}
               id={event._id}
             />
