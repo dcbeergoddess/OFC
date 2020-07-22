@@ -43,7 +43,8 @@ mongoose.connect(
   }
 )
 
-console.log(__dirname)
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 const clientStaticPath = process.env.NODE_ENV === 'production' ?
   __dirname + '/../client/build' :
@@ -56,8 +57,6 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
 // Define middleware here
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
 app.use(cookieParser())
 app.use(session({
