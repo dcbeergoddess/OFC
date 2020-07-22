@@ -5,10 +5,22 @@ const
     '' :
     'http://localhost:3001'
 
+//axios.defaults.withCredentials = true
+
 export default {
+  isAuthenticated() {
+    const endpoint = `${URL}/api/auth`
+    return axios.get(endpoint, {withCredentials: false})
+  },
+
   logonUser(credentials) {
     const endpoint = `${URL}/api/login`
-    return axios.post(endpoint, credentials)
+    return axios.post(endpoint, credentials, {withCredentials: false})
+  },
+
+  logoutUser() {
+    const endpoint = `${URL}/api/logout`
+    return axios.post(endpoint)
   },
 
   registerUser(credentials) {

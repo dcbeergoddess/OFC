@@ -22,6 +22,14 @@ function RegisterForm(props) {
     }
   }
 
+  const validateEmail = email => {
+    const match = email
+      .trim()
+      .toLowerCase()
+      .match(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)
+
+    return match ? true : false
+  }
 
   const registerUser = event => {
     event.preventDefault()
@@ -29,7 +37,13 @@ function RegisterForm(props) {
     const form = event.target
     const credentials = {
       username: form.username.value,
+      email: form.email.value,
       password: form.password.value
+    }
+
+    if (!validateEmail(credentials.email)) {
+      props.showMessage("Invalid email address")
+      return
     }
 
     API.registerUser(credentials)
@@ -68,10 +82,10 @@ function RegisterForm(props) {
             />
           </div>
           <div className="form-group row">
-            <label htmlFor="email" className="col-12 col-md-4 col-form-label">Username:</label>
+            <label htmlFor="email" className="col-12 col-md-4 col-form-label">Email:</label>
             <input
               name="email"
-              type="text"
+              type="email"
               autoComplete="off"
               className="form-control col-12 col-md-8"
               placeholder="Enter your email"

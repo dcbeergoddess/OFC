@@ -1,17 +1,21 @@
 const
   express = require('express'),
   session = require('express-session'),
-  passport = require('./config/passport'),
+  cookieParser = require('cookie-parser'),
+  bodyParser = require('body-parser'),
+  auth = require('./config/auth'),
   path = require('path'),
   mongoose = require('mongoose'),
   multer = require('./config/multer'),
   cors = require('cors'),
-  uuidv4 = require('uuidv4')
+  uuidv4 = require('uuidv4'),
+  passport = require('passport')
 
 const
   User = require('./models/User'),
   Event = require('./models/Event'),
-  Comment = require('./models/Comment')
+  MongoStore = require('connect-mongo')(session),
+  Comment = require('./models/Comment');
 
 require('dotenv').config()
 
@@ -22,7 +26,7 @@ const app = express();
 
 
 const returnSuccess = (result, res) => {
-  console.log(result)
+  console.log(`Success result: ${result}`)
   res.json({status: "success", data: result})
 }
 
@@ -39,13 +43,6 @@ mongoose.connect(
   }
 )
 
-
-// Define middleware here
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-app.use(cors());
-
 console.log(__dirname)
 
 const clientStaticPath = process.env.NODE_ENV === 'production' ?
@@ -55,32 +52,59 @@ const clientStaticPath = process.env.NODE_ENV === 'production' ?
 // Serve up static assets (usually on heroku)
 app.use(express.static(clientStaticPath))
 
-// app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
+
+// Define middleware here
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.use(cookieParser())
+app.use(session({
+  secret: "keyboard cat",
+  resave: true,
+  saveUninitialized: false,
+  store: new MongoStore({mongooseConnection: mongoose.connection}),
+  ttl: 24 * 60 * 60,
+  cookie: {
+    httpOnly: false,
+    maxAge: 365 * 24 * 60 * 60 * 1000
+  }
+
+}))
+
+app.use(auth.initialize);
+app.use(auth.session);
+app.use(auth.setUser);
+
+
+//app.use(cors());
+
 
 
 // Define API routes here
 
-app.post("/api/login", function(req, res) {
+app.get('/api/auth', (req, res) => {
+  console.log(`Authenticated user: ${req.user}`)
+  if (req.user) {
+    returnSuccess(true, res)
+  } else {
+    returnSuccess(false, res)
+  }
+})
 
-  User.findOne({username: req.body.username})
-    .then(user => {
-      const logonFailed = () =>
-        returnError({message: "Invalid username or password."}, res)
+app.post("/api/login",
+  passport.authenticate('local'),
+  function(req, res) {
+    console.log('/api/login')
+    console.log(req.user)
+    returnSuccess(req.user, res)
+  })
 
-      if (!user) {
-        logonFailed()
-      } else if (!user.comparePassword(req.body.password)) {
-        logonFailed()
-      } else {
-        returnSuccess({
-          username: user.username,
-          _id: user._id
-        }, res)
-      }
-    })
-    .catch(error => returnError(error, res))
+app.post("/api/logout", function(req,res) {
+  console.log(req)
+  req.logout()
+  res.json(true)
 })
 
 
