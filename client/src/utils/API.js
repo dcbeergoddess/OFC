@@ -53,6 +53,11 @@ export default {
     return axios.post(endpoint, comment)
   },
 
+  incrementEventFlag(eventId) {
+    const endpoint = `${URL}/api/flag/${eventId}`
+    return axios.post(endpoint)
+  },
+
   deleteComment(commentId) {
     const endpoint = `${URL}/api/comment/${commentId}`
     return axios.delete(endpoint)
