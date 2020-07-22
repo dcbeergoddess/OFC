@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Home from "./pages/Home";
 import History from "./pages/History";
@@ -37,6 +37,12 @@ function App() {
     }
   }
 
+  useEffect(() => {
+    API.isAuthenticated()
+      .then(result => setIsAuthenticated(result.data.data))
+      .catch(console.error)
+  }, [])
+
 //  const location = useLocation()
 
 
@@ -68,6 +74,7 @@ function App() {
   const handleLogout = event => {
     event.preventDefault()
 
+    
     setIsAuthenticated(false)
     setUser("")
 
