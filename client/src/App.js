@@ -1,22 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import Home from "./pages/Home";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "./pages/Home/Home";
 import History from "./pages/History";
 import EventMain from "./pages/EventMain";
 import EventDetail from "./pages/EventDetail";
 import AddEvent from "./pages/AddEvent";
 import AddComment from "./pages/AddComment";
-import LoginForm from './pages/LoginForm'
-import RegisterForm from './pages/RegisterForm'
+import LoginForm from './pages/LoginForm/LoginForm'
+import RegisterForm from './pages/RegisterForm/RegisterForm'
 import API from './utils/API'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import $ from 'jquery';
-import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import "./App.css";
 import Footer from "./components/Footer/Footer";
 import Navbar2 from './components/NavBar/NavBar'
-
+import Jumbotron from './components/Jumbotron/Jumbotron'
 
 
 function App() {
@@ -86,6 +84,8 @@ function App() {
         <Navbar2 isAuthenticated={isAuthenticated} handleLogout={handleLogout}/>
 
         {/* react router is responding to what the path is */}
+        {/* <Switch /> */}
+        <Jumbotron />
         <Route exact path="/" component={Home} />
         <Route path="/history" component={History} />
         <Route path="/EventMain" render={props =>
@@ -115,6 +115,7 @@ function App() {
             errorMessage={errorMessage}
             isAuthenticated={isAuthenticated} />
         } />
+        {/* <Switch /> */}
         <Footer/>
     </Router>
   );

@@ -6,18 +6,13 @@ import "./AddEventForm.css";
 import API from '../../utils/API'
 import moment from 'moment'
 
-import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
-import TimePicker from 'rc-time-picker'
 import 'rc-time-picker/assets/index.css'
 import defaultImage from '../../assets/images/BLM_StreetSign.png'
 
 
 class AddEventForm extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   // Setting the component's initial state
   state = {
@@ -84,7 +79,8 @@ class AddEventForm extends Component {
       {!this.props.isAuthenticated && <Redirect to="/" />}
       {this.state.submitted && <Redirect to="/EventMain" />}
 
-      <div >
+      <div className='container' style={{width:'100vw', paddingBottom: '50px'}}>
+
       <h1>Add Event</h1>
       <form className="form" onSubmit={this.handleFormSubmit}>
         <input
@@ -93,14 +89,15 @@ class AddEventForm extends Component {
           onChange={this.handleInputChange}
           type="text"
           placeholder="Event Title"
-        />
+        />        
         <input
           value={this.state.imageUrl}
           name="imageUrl"
           onChange={this.handleInputChange}
-          type="file"
+          type="text"
           placeholder="Image URL"
         />
+        <a href="https://pixabay.com/" target="_blank" rel="noopener noreferrer" style={{color: "ivory", fontSize: '1rem'}}>Find Free Images Here!!!</a>
         <input
           value={this.state.date}
           name="date"

@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import {Link, Route, useParams} from "react-router-dom";
+import React, {useEffect} from "react";
+import {Link} from "react-router-dom";
 import EventDetails from '../components/EventDetailCard/EventDetailCard'
 import API from "../utils/API"
 
@@ -15,7 +15,7 @@ function EventDetail(props){
       this.setState({events: events})
     })
     .catch(console.error)
-  }, [])
+  }, [props.id])
 
 
   
@@ -37,9 +37,9 @@ function EventDetail(props){
                 <h2 className="name">Test</h2>
                 <img src="test"
                     alt="test" />
-                    {/* <h3 >{props.date}</h3>
-                    <h3 >{props.time}</h3>
-                    <h3 >{props.location}</h3> */}
+                    <h3 >10/20/2020</h3>
+                    <h3 >1:53PM</h3>
+                    <h3 >Washington, DC</h3>
                     <button className="btn btn-dark">Delete Event</button>
                     <Link to="/AddComment" role="button" className="btn btn-lg btn-dark btn-block">
                         Add Comment
@@ -48,18 +48,7 @@ function EventDetail(props){
                  <Link  to={`/EventMain`} >
                 </Link>
                 </div>
-      <EventDetails
-        // key={events._id}
-        // title={events.title}
-        // image={events.imageUrl}
-        // date={events.when}
-        // time={events.when}
-        // location={events.location}
-        // description={events.description}
-        // isAuthenticated={props.isAuthenticated}
-        // user={props.user}
-        // id={events._id}
-      />
+      <EventDetails />
 
       {/* <Route exact path={`${props.match.url}/api/event/${props._id}`} component={EventDetail} /> */}
     </>

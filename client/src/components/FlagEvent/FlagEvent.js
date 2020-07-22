@@ -12,12 +12,12 @@ function FlagEvent() {
   useEffect(() => {
     prevCountRef.current = count;
   });
-  const prevCount = prevCountRef.current;
+  // const prevCount = prevCountRef.current;
  
   return (
     <div>
       <button type="button" onClick={handleClick} style={{margin:"10px",border: "none", backgroundColor:"#FAFAD2", padding: "15px"}}>
-      <span role="img" aria-label="flag"> 🚩</span> Report Event: {count}
+      <span role="img" aria-label="flag"> 🚩</span> Report Event : {count}
       </button>
     </div>
   );

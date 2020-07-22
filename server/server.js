@@ -133,6 +133,8 @@ app.get("/api/event/:id", function (req, res) {
     .catch(error => returnError(error, res));
 });
 
+/* Multer Did not Quick do the trick this time
+
 const DIR = "./public/";
 
 const storage = multer.diskStorage({
@@ -157,6 +159,7 @@ const upload = multer({
   },
 });
 
+
 app.post("/api/event", upload.single("imageUrl"), function (req, res, next) {
   console.log(req);
   const url = req.protocol + "://" + req.get("host");
@@ -176,6 +179,13 @@ app.post("/api/event", upload.single("imageUrl"), function (req, res, next) {
     .then(event => returnSuccess(event, res))
     .catch(error => returnError(error, res));
 });
+*/
+app.post("/api/event", function(req, res) {
+  const newEvent = new Event(req.body)
+  newEvent.save()
+    .then(event => returnSuccess(event, res))
+    .catch(error => returnError(error, res))
+})
 
 app.delete("/api/event/:id", function (req, res) {
   const eventId = req.params.id;

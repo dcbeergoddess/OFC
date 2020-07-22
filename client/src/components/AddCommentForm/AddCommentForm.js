@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import {Link, Redirect} from "react-router-dom";
+import {Link} from "react-router-dom";
 import "./AddCommentForm.css";
 import API from "../../utils/API";
 
 
 class AddCommentForm extends Component {
-  constructor(props) {
-    super(props)
-  }
+
   // Setting the component's initial state
   state = {
     comment: "",
