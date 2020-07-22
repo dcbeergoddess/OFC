@@ -5,6 +5,15 @@ import API from "../utils/API"
 
 function EventDetail(props){
 
+
+  // API.getEvent()
+  //     .then(results => {
+  //       const events = results.data.data
+  //       this.setState({events: events})
+  //     })
+  //     .catch(console.error)
+
+  
  /* 
 
     const {event} = useParams()
@@ -23,9 +32,9 @@ function EventDetail(props){
   
   return (
     <>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12">
             <h1> Community Page</h1>
           </div>
         </div>
@@ -35,20 +44,35 @@ function EventDetail(props){
       </Link>
         </div>
       </div>
+      {/* <div key={props._id} className="card">
+                <h2 className="name">{props.title}</h2>
+                <img src={props.image}
+                    alt={props.title} />
+                    <h3 >{props.date}</h3>
+                    <h3 >{props.time}</h3>
+                    <h3 >{props.location}</h3>
+                    <button className="btn btn-dark">Delete Event</button>
+                    <Link to="/AddComment" role="button" className="btn btn-lg btn-dark btn-block">
+                        Add Comment
+                    </Link>
+
+                 <Link  to={`/EventMain`} >
+                </Link>
+                </div> */}
       <EventDetails
-        // key={this.event._id}
-        // title={this.event.title}
-        // image={this.event.imageUrl}
-        // date={this.event.when}
-        // time={this.event.when}
-        // location={this.event.location}
-        // description={this.event.description}
-        // isAuthenticated={this.props.isAuthenticated}
-        // user={this.props.user}
-        // id={this.event._id}
+        // key={events._id}
+        // title={events.title}
+        // image={events.imageUrl}
+        // date={events.when}
+        // time={events.when}
+        // location={events.location}
+        // description={events.description}
+        // isAuthenticated={props.isAuthenticated}
+        // user={props.user}
+        // id={events._id}
       />
 
-      <Route exact path={`${props.match.url}/api/event/${props._id}`} component={EventDetail} />
+      {/* <Route exact path={`${props.match.url}/api/event/${props._id}`} component={EventDetail} /> */}
     </>
   );
 }

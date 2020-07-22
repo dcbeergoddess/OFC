@@ -19,7 +19,7 @@ class EventCard extends React.Component {
     event.preventDefault();
     API.deleteEvent(this.props.id).then(res => {
       console.log(res);
-      window.location.reload(false);
+      // window.location.reload(false);
     });
   };
 
@@ -55,7 +55,7 @@ class EventCard extends React.Component {
         <Card.Body classname="btnEvent">
           <FlagEvent />
           <br></br>
-          <Link to={`/api/event/${this.props.id}`} role="button" className="btn btn-dark btn-block" style={{ margin: "10px", fontSize: "16px" }}>
+          <Link to={`/event/${this.props.id}`} role="button" className="btn btn-dark btn-block" style={{ margin: "10px", fontSize: "16px" }}>
             See Event Details
           </Link>
           <Button className="btn btn-dark btnEvent" style={{ margin: "10px", fontSize: "16px" }} onClick={event => this.handleDelete(event)}>
